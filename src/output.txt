@@ -1,0 +1,2572 @@
+CIVILIZATON STATS
+	science: 0/25 (+4) [7 turns]
+	research: []
+	gold: 0 (+3)
+	happiness: 5 (+9, -4)
+	culture: 0/15 (+1) [15 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: [Research(name='Pottery', science=25)]
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 1
+	food: 0/10.0 (+2) [5 turns]
+	production: 0/46 (+5) [10 turns]
+	gold: +3
+	science: +4
+	faith: +0
+	tourism: +0
+	culture: 0/10 (+1) [10 turns]
+
+	production queue: [Unit(name='Worker', hammers_req=46)]
+
+TURN 2
+
+CIVILIZATON STATS
+	science: 4/25 (+4) [6 turns]
+	research: []
+	gold: 3 (+3)
+	happiness: 5 (+9, -4)
+	culture: 1/15 (+1) [14 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: [Research(name='Pottery', science=25)]
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 1
+	food: 2/10.0 (+2) [4 turns]
+	production: 5/46 (+5) [9 turns]
+	gold: +3
+	science: +4
+	faith: +0
+	tourism: +0
+	culture: 1/10 (+1) [9 turns]
+
+	production queue: [Unit(name='Worker', hammers_req=46)]
+
+TURN 3
+
+CIVILIZATON STATS
+	science: 8/25 (+4) [5 turns]
+	research: []
+	gold: 6 (+3)
+	happiness: 5 (+9, -4)
+	culture: 2/15 (+1) [13 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: [Research(name='Pottery', science=25)]
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 1
+	food: 4/10.0 (+2) [3 turns]
+	production: 10/46 (+5) [8 turns]
+	gold: +3
+	science: +4
+	faith: +0
+	tourism: +0
+	culture: 2/10 (+1) [8 turns]
+
+	production queue: [Unit(name='Worker', hammers_req=46)]
+
+TURN 4
+
+CIVILIZATON STATS
+	science: 12/25 (+4) [4 turns]
+	research: []
+	gold: 9 (+3)
+	happiness: 5 (+9, -4)
+	culture: 3/15 (+1) [12 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: [Research(name='Pottery', science=25)]
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 1
+	food: 6/10.0 (+2) [2 turns]
+	production: 15/46 (+5) [7 turns]
+	gold: +3
+	science: +4
+	faith: +0
+	tourism: +0
+	culture: 3/10 (+1) [7 turns]
+
+	production queue: [Unit(name='Worker', hammers_req=46)]
+
+TURN 5
+
+CIVILIZATON STATS
+	science: 16/25 (+4) [3 turns]
+	research: []
+	gold: 12 (+3)
+	happiness: 5 (+9, -4)
+	culture: 4/15 (+1) [11 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: [Research(name='Pottery', science=25)]
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 1
+	food: 8/10.0 (+2) [1 turns]
+	production: 20/46 (+5) [6 turns]
+	gold: +3
+	science: +4
+	faith: +0
+	tourism: +0
+	culture: 4/10 (+1) [6 turns]
+
+	production queue: [Unit(name='Worker', hammers_req=46)]
+
+TURN 6
+
+CIVILIZATON STATS
+	science: 20/25 (+5) [1 turns]
+	research: []
+	gold: 15 (+3)
+	happiness: 4 (+9, -5)
+	culture: 5/15 (+1) [10 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: [Research(name='Pottery', science=25)]
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: 25/46 (+7) [3 turns]
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 5/10 (+1) [5 turns]
+
+	production queue: [Unit(name='Worker', hammers_req=46)]
+
+TURN 7
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 18 (+3)
+	happiness: 4 (+9, -5)
+	culture: 6/15 (+1) [9 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: 32/46 (+7) [2 turns]
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 6/10 (+1) [4 turns]
+
+	production queue: [Unit(name='Worker', hammers_req=46)]
+
+TURN 8
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 21 (+3)
+	happiness: 4 (+9, -5)
+	culture: 7/15 (+1) [8 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: 39/46 (+7) [1 turns]
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 7/10 (+1) [3 turns]
+
+	production queue: [Unit(name='Worker', hammers_req=46)]
+
+TURN 9
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 24 (+3)
+	happiness: 4 (+9, -5)
+	culture: 8/15 (+1) [7 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 8/10 (+1) [2 turns]
+
+	production queue: []
+
+TURN 10
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 27 (+3)
+	happiness: 4 (+9, -5)
+	culture: 9/15 (+1) [6 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 9/10 (+1) [1 turns]
+
+	production queue: []
+
+TURN 11
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 30 (+3)
+	happiness: 4 (+9, -5)
+	culture: 10/15 (+1) [5 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 0/16 (+1) [16 turns]
+
+	production queue: []
+
+TURN 12
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 33 (+3)
+	happiness: 4 (+9, -5)
+	culture: 11/15 (+1) [4 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 1/16 (+1) [15 turns]
+
+	production queue: []
+
+TURN 13
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 36 (+3)
+	happiness: 4 (+9, -5)
+	culture: 12/15 (+1) [3 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 2/16 (+1) [14 turns]
+
+	production queue: []
+
+TURN 14
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 39 (+3)
+	happiness: 4 (+9, -5)
+	culture: 13/15 (+1) [2 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 3/16 (+1) [13 turns]
+
+	production queue: []
+
+TURN 15
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 42 (+3)
+	happiness: 4 (+9, -5)
+	culture: 14/15 (+1) [1 turns]
+	policies: []
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: [Policy(name='Oligarchy')]
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 4/16 (+1) [12 turns]
+
+	production queue: []
+
+TURN 16
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 45 (+3)
+	happiness: 4 (+9, -5)
+	culture: 0/20 (+1) [20 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 5/16 (+1) [11 turns]
+
+	production queue: []
+
+TURN 17
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 48 (+3)
+	happiness: 4 (+9, -5)
+	culture: 1/20 (+1) [19 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 6/16 (+1) [10 turns]
+
+	production queue: []
+
+TURN 18
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 51 (+3)
+	happiness: 4 (+9, -5)
+	culture: 2/20 (+1) [18 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 7/16 (+1) [9 turns]
+
+	production queue: []
+
+TURN 19
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 54 (+3)
+	happiness: 4 (+9, -5)
+	culture: 3/20 (+1) [17 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 8/16 (+1) [8 turns]
+
+	production queue: []
+
+TURN 20
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 57 (+3)
+	happiness: 4 (+9, -5)
+	culture: 4/20 (+1) [16 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 9/16 (+1) [7 turns]
+
+	production queue: []
+
+TURN 21
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 60 (+3)
+	happiness: 4 (+9, -5)
+	culture: 5/20 (+1) [15 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 10/16 (+1) [6 turns]
+
+	production queue: []
+
+TURN 22
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 63 (+3)
+	happiness: 4 (+9, -5)
+	culture: 6/20 (+1) [14 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 11/16 (+1) [5 turns]
+
+	production queue: []
+
+TURN 23
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 66 (+3)
+	happiness: 4 (+9, -5)
+	culture: 7/20 (+1) [13 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 12/16 (+1) [4 turns]
+
+	production queue: []
+
+TURN 24
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 69 (+3)
+	happiness: 4 (+9, -5)
+	culture: 8/20 (+1) [12 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 13/16 (+1) [3 turns]
+
+	production queue: []
+
+TURN 25
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 72 (+3)
+	happiness: 4 (+9, -5)
+	culture: 9/20 (+1) [11 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 14/16 (+1) [2 turns]
+
+	production queue: []
+
+TURN 26
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 75 (+3)
+	happiness: 4 (+9, -5)
+	culture: 10/20 (+1) [10 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 15/16 (+1) [1 turns]
+
+	production queue: []
+
+TURN 27
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 78 (+3)
+	happiness: 4 (+9, -5)
+	culture: 11/20 (+1) [9 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 0/23 (+1) [23 turns]
+
+	production queue: []
+
+TURN 28
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 81 (+3)
+	happiness: 4 (+9, -5)
+	culture: 12/20 (+1) [8 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 1/23 (+1) [22 turns]
+
+	production queue: []
+
+TURN 29
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 84 (+3)
+	happiness: 4 (+9, -5)
+	culture: 13/20 (+1) [7 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 2/23 (+1) [21 turns]
+
+	production queue: []
+
+TURN 30
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 87 (+3)
+	happiness: 4 (+9, -5)
+	culture: 14/20 (+1) [6 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 3/23 (+1) [20 turns]
+
+	production queue: []
+
+TURN 31
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 90 (+3)
+	happiness: 4 (+9, -5)
+	culture: 15/20 (+1) [5 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 4/23 (+1) [19 turns]
+
+	production queue: []
+
+TURN 32
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 93 (+3)
+	happiness: 4 (+9, -5)
+	culture: 16/20 (+1) [4 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 5/23 (+1) [18 turns]
+
+	production queue: []
+
+TURN 33
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 96 (+3)
+	happiness: 4 (+9, -5)
+	culture: 17/20 (+1) [3 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 6/23 (+1) [17 turns]
+
+	production queue: []
+
+TURN 34
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 99 (+3)
+	happiness: 4 (+9, -5)
+	culture: 18/20 (+1) [2 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 7/23 (+1) [16 turns]
+
+	production queue: []
+
+TURN 35
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 102 (+3)
+	happiness: 4 (+9, -5)
+	culture: 19/20 (+1) [1 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 8/23 (+1) [15 turns]
+
+	production queue: []
+
+TURN 36
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 105 (+3)
+	happiness: 4 (+9, -5)
+	culture: 20/20 (+1) [0 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 9/23 (+1) [14 turns]
+
+	production queue: []
+
+TURN 37
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 108 (+3)
+	happiness: 4 (+9, -5)
+	culture: 21/20 (+1) [-1 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 10/23 (+1) [13 turns]
+
+	production queue: []
+
+TURN 38
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 111 (+3)
+	happiness: 4 (+9, -5)
+	culture: 22/20 (+1) [-2 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 11/23 (+1) [12 turns]
+
+	production queue: []
+
+TURN 39
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 114 (+3)
+	happiness: 4 (+9, -5)
+	culture: 23/20 (+1) [-3 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 12/23 (+1) [11 turns]
+
+	production queue: []
+
+TURN 40
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 117 (+3)
+	happiness: 4 (+9, -5)
+	culture: 24/20 (+1) [-4 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 13/23 (+1) [10 turns]
+
+	production queue: []
+
+TURN 41
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 120 (+3)
+	happiness: 4 (+9, -5)
+	culture: 25/20 (+1) [-5 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 14/23 (+1) [9 turns]
+
+	production queue: []
+
+TURN 42
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 123 (+3)
+	happiness: 4 (+9, -5)
+	culture: 26/20 (+1) [-6 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 15/23 (+1) [8 turns]
+
+	production queue: []
+
+TURN 43
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 126 (+3)
+	happiness: 4 (+9, -5)
+	culture: 27/20 (+1) [-7 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 16/23 (+1) [7 turns]
+
+	production queue: []
+
+TURN 44
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 129 (+3)
+	happiness: 4 (+9, -5)
+	culture: 28/20 (+1) [-8 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 17/23 (+1) [6 turns]
+
+	production queue: []
+
+TURN 45
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 132 (+3)
+	happiness: 4 (+9, -5)
+	culture: 29/20 (+1) [-9 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 18/23 (+1) [5 turns]
+
+	production queue: []
+
+TURN 46
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 135 (+3)
+	happiness: 4 (+9, -5)
+	culture: 30/20 (+1) [-10 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 19/23 (+1) [4 turns]
+
+	production queue: []
+
+TURN 47
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 138 (+3)
+	happiness: 4 (+9, -5)
+	culture: 31/20 (+1) [-11 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 20/23 (+1) [3 turns]
+
+	production queue: []
+
+TURN 48
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 141 (+3)
+	happiness: 4 (+9, -5)
+	culture: 32/20 (+1) [-12 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 21/23 (+1) [2 turns]
+
+	production queue: []
+
+TURN 49
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 144 (+3)
+	happiness: 4 (+9, -5)
+	culture: 33/20 (+1) [-13 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 22/23 (+1) [1 turns]
+
+	production queue: []
+
+TURN 50
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 147 (+3)
+	happiness: 4 (+9, -5)
+	culture: 34/20 (+1) [-14 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 0/31 (+1) [31 turns]
+
+	production queue: []
+
+TURN 51
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 150 (+3)
+	happiness: 4 (+9, -5)
+	culture: 35/20 (+1) [-15 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 1/31 (+1) [30 turns]
+
+	production queue: []
+
+TURN 52
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 153 (+3)
+	happiness: 4 (+9, -5)
+	culture: 36/20 (+1) [-16 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 2/31 (+1) [29 turns]
+
+	production queue: []
+
+TURN 53
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 156 (+3)
+	happiness: 4 (+9, -5)
+	culture: 37/20 (+1) [-17 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 3/31 (+1) [28 turns]
+
+	production queue: []
+
+TURN 54
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 159 (+3)
+	happiness: 4 (+9, -5)
+	culture: 38/20 (+1) [-18 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 4/31 (+1) [27 turns]
+
+	production queue: []
+
+TURN 55
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 162 (+3)
+	happiness: 4 (+9, -5)
+	culture: 39/20 (+1) [-19 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 5/31 (+1) [26 turns]
+
+	production queue: []
+
+TURN 56
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 165 (+3)
+	happiness: 4 (+9, -5)
+	culture: 40/20 (+1) [-20 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 6/31 (+1) [25 turns]
+
+	production queue: []
+
+TURN 57
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 168 (+3)
+	happiness: 4 (+9, -5)
+	culture: 41/20 (+1) [-21 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 7/31 (+1) [24 turns]
+
+	production queue: []
+
+TURN 58
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 171 (+3)
+	happiness: 4 (+9, -5)
+	culture: 42/20 (+1) [-22 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 8/31 (+1) [23 turns]
+
+	production queue: []
+
+TURN 59
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 174 (+3)
+	happiness: 4 (+9, -5)
+	culture: 43/20 (+1) [-23 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 9/31 (+1) [22 turns]
+
+	production queue: []
+
+TURN 60
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 177 (+3)
+	happiness: 4 (+9, -5)
+	culture: 44/20 (+1) [-24 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 10/31 (+1) [21 turns]
+
+	production queue: []
+
+TURN 61
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 180 (+3)
+	happiness: 4 (+9, -5)
+	culture: 45/20 (+1) [-25 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 11/31 (+1) [20 turns]
+
+	production queue: []
+
+TURN 62
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 183 (+3)
+	happiness: 4 (+9, -5)
+	culture: 46/20 (+1) [-26 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 12/31 (+1) [19 turns]
+
+	production queue: []
+
+TURN 63
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 186 (+3)
+	happiness: 4 (+9, -5)
+	culture: 47/20 (+1) [-27 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 13/31 (+1) [18 turns]
+
+	production queue: []
+
+TURN 64
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 189 (+3)
+	happiness: 4 (+9, -5)
+	culture: 48/20 (+1) [-28 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 14/31 (+1) [17 turns]
+
+	production queue: []
+
+TURN 65
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 192 (+3)
+	happiness: 4 (+9, -5)
+	culture: 49/20 (+1) [-29 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 15/31 (+1) [16 turns]
+
+	production queue: []
+
+TURN 66
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 195 (+3)
+	happiness: 4 (+9, -5)
+	culture: 50/20 (+1) [-30 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 16/31 (+1) [15 turns]
+
+	production queue: []
+
+TURN 67
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 198 (+3)
+	happiness: 4 (+9, -5)
+	culture: 51/20 (+1) [-31 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 17/31 (+1) [14 turns]
+
+	production queue: []
+
+TURN 68
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 201 (+3)
+	happiness: 4 (+9, -5)
+	culture: 52/20 (+1) [-32 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 18/31 (+1) [13 turns]
+
+	production queue: []
+
+TURN 69
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 204 (+3)
+	happiness: 4 (+9, -5)
+	culture: 53/20 (+1) [-33 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 19/31 (+1) [12 turns]
+
+	production queue: []
+
+TURN 70
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 207 (+3)
+	happiness: 4 (+9, -5)
+	culture: 54/20 (+1) [-34 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 20/31 (+1) [11 turns]
+
+	production queue: []
+
+TURN 71
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 210 (+3)
+	happiness: 4 (+9, -5)
+	culture: 55/20 (+1) [-35 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 21/31 (+1) [10 turns]
+
+	production queue: []
+
+TURN 72
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 213 (+3)
+	happiness: 4 (+9, -5)
+	culture: 56/20 (+1) [-36 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 22/31 (+1) [9 turns]
+
+	production queue: []
+
+TURN 73
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 216 (+3)
+	happiness: 4 (+9, -5)
+	culture: 57/20 (+1) [-37 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 23/31 (+1) [8 turns]
+
+	production queue: []
+
+TURN 74
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 219 (+3)
+	happiness: 4 (+9, -5)
+	culture: 58/20 (+1) [-38 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 24/31 (+1) [7 turns]
+
+	production queue: []
+
+TURN 75
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 222 (+3)
+	happiness: 4 (+9, -5)
+	culture: 59/20 (+1) [-39 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 25/31 (+1) [6 turns]
+
+	production queue: []
+
+TURN 76
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 225 (+3)
+	happiness: 4 (+9, -5)
+	culture: 60/20 (+1) [-40 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 26/31 (+1) [5 turns]
+
+	production queue: []
+
+TURN 77
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 228 (+3)
+	happiness: 4 (+9, -5)
+	culture: 61/20 (+1) [-41 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 27/31 (+1) [4 turns]
+
+	production queue: []
+
+TURN 78
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 231 (+3)
+	happiness: 4 (+9, -5)
+	culture: 62/20 (+1) [-42 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 28/31 (+1) [3 turns]
+
+	production queue: []
+
+TURN 79
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 234 (+3)
+	happiness: 4 (+9, -5)
+	culture: 63/20 (+1) [-43 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 29/31 (+1) [2 turns]
+
+	production queue: []
+
+TURN 80
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 237 (+3)
+	happiness: 4 (+9, -5)
+	culture: 64/20 (+1) [-44 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 30/31 (+1) [1 turns]
+
+	production queue: []
+
+TURN 81
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 240 (+3)
+	happiness: 4 (+9, -5)
+	culture: 65/20 (+1) [-45 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 0/39 (+1) [39 turns]
+
+	production queue: []
+
+TURN 82
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 243 (+3)
+	happiness: 4 (+9, -5)
+	culture: 66/20 (+1) [-46 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 1/39 (+1) [38 turns]
+
+	production queue: []
+
+TURN 83
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 246 (+3)
+	happiness: 4 (+9, -5)
+	culture: 67/20 (+1) [-47 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 2/39 (+1) [37 turns]
+
+	production queue: []
+
+TURN 84
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 249 (+3)
+	happiness: 4 (+9, -5)
+	culture: 68/20 (+1) [-48 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 3/39 (+1) [36 turns]
+
+	production queue: []
+
+TURN 85
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 252 (+3)
+	happiness: 4 (+9, -5)
+	culture: 69/20 (+1) [-49 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 4/39 (+1) [35 turns]
+
+	production queue: []
+
+TURN 86
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 255 (+3)
+	happiness: 4 (+9, -5)
+	culture: 70/20 (+1) [-50 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 5/39 (+1) [34 turns]
+
+	production queue: []
+
+TURN 87
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 258 (+3)
+	happiness: 4 (+9, -5)
+	culture: 71/20 (+1) [-51 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 6/39 (+1) [33 turns]
+
+	production queue: []
+
+TURN 88
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 261 (+3)
+	happiness: 4 (+9, -5)
+	culture: 72/20 (+1) [-52 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 7/39 (+1) [32 turns]
+
+	production queue: []
+
+TURN 89
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 264 (+3)
+	happiness: 4 (+9, -5)
+	culture: 73/20 (+1) [-53 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 8/39 (+1) [31 turns]
+
+	production queue: []
+
+TURN 90
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 267 (+3)
+	happiness: 4 (+9, -5)
+	culture: 74/20 (+1) [-54 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 9/39 (+1) [30 turns]
+
+	production queue: []
+
+TURN 91
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 270 (+3)
+	happiness: 4 (+9, -5)
+	culture: 75/20 (+1) [-55 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 10/39 (+1) [29 turns]
+
+	production queue: []
+
+TURN 92
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 273 (+3)
+	happiness: 4 (+9, -5)
+	culture: 76/20 (+1) [-56 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 11/39 (+1) [28 turns]
+
+	production queue: []
+
+TURN 93
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 276 (+3)
+	happiness: 4 (+9, -5)
+	culture: 77/20 (+1) [-57 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 12/39 (+1) [27 turns]
+
+	production queue: []
+
+TURN 94
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 279 (+3)
+	happiness: 4 (+9, -5)
+	culture: 78/20 (+1) [-58 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 13/39 (+1) [26 turns]
+
+	production queue: []
+
+TURN 95
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 282 (+3)
+	happiness: 4 (+9, -5)
+	culture: 79/20 (+1) [-59 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 14/39 (+1) [25 turns]
+
+	production queue: []
+
+TURN 96
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 285 (+3)
+	happiness: 4 (+9, -5)
+	culture: 80/20 (+1) [-60 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 15/39 (+1) [24 turns]
+
+	production queue: []
+
+TURN 97
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 288 (+3)
+	happiness: 4 (+9, -5)
+	culture: 81/20 (+1) [-61 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 16/39 (+1) [23 turns]
+
+	production queue: []
+
+TURN 98
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 291 (+3)
+	happiness: 4 (+9, -5)
+	culture: 82/20 (+1) [-62 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 17/39 (+1) [22 turns]
+
+	production queue: []
+
+TURN 99
+
+CIVILIZATON STATS
+	science: +5
+	research: [Research(name='Pottery', science=25)]
+	gold: 294 (+3)
+	happiness: 4 (+9, -5)
+	culture: 83/20 (+1) [-63 turns]
+	policies: [Policy(name='Oligarchy')]
+	faith: 0 (+0)
+
+	research queue: []
+	social policy queue: []
+
+CITY 1
+	pop: 2
+	food: 0.0/16.0 (+0) [-1 turns]
+	production: +7
+	gold: +3
+	science: +5
+	faith: +0
+	tourism: +0
+	culture: 18/39 (+1) [21 turns]
+
+	production queue: []
+

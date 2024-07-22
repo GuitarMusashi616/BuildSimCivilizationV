@@ -1,3 +1,5 @@
+# pyright: strict
+
 hammer_cost = {
     'worker': 46,
     'scout': 16,

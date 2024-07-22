@@ -75,3 +75,7 @@
 
 - How long to make 3 composite bowmen?
 - How long to test babylon strategy?
+
+## Game Speed
+- Quick is 150% faster
+  - requires 10 pop to grow rather than 15 (divide by 1.5)

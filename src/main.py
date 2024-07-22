@@ -1,29 +1,61 @@
 # pyright: basic
 
 from typing import List
-from City import City
-from Resource import Resource
-from Improvement import Improvement
-from Tile import Tile
-from WonderFactory import WonderFactory
-from src.TileFactory import TileFactory
+from queueable.Building import Building
+from core.City import City
+from core.Civ import Civ
+from enums.Nation import Nation
+from researchable.Policy import Policy
+from researchable.Tech import Tech
+from enums.Resource import Resource
+from enums.Improvement import Improvement
+from tile.Tile import Tile
+from queueable.UnitFactory import UnitFactory
+from queueable.WonderFactory import WonderFactory
+from tile.TileFactory import TileFactory
 
 def main():
     # first tile is the city
     # then start above it going clockwise (start on upper right if two tiles above first tile)
+    civ = Civ(Nation.ARABIA)
+
     base = [
-        TileFactory.grassland_river(),
+        TileFactory.grassland_river_city(),
         TileFactory.grassland_hill(),
         TileFactory.forest_grassland(),
         TileFactory.grassland_river(),
         TileFactory.grassland_river(),
         TileFactory.plains_river(),
-        TileFactory.grassland_river([Resource.STONE]),
+        TileFactory.grassland_river_stone(),
+
+        TileFactory.grassland_hill(),
+        TileFactory.forest_grassland(),
+        TileFactory.grassland_river(),
+        TileFactory.grassland_river(),
+        TileFactory.plains_river(),
+        TileFactory.grassland_river_stone(),
     ]
 
-    capital = City()
-
+    capital = City(base)
     capital.add_wonder(WonderFactory.palace())
+    capital.pick_tiles_with_strat()
+    capital.queue_up(UnitFactory.worker())
+
+    civ.add_city(capital)
+
+    civ.queue_research(Tech('Pottery', 25))
+    civ.queue_social_policy(Policy('Oligarchy'))
+    civ.stats()
+
+    for i in range(2, 100):
+        civ.next_turn()
+        print(f"TURN {i}")
+        print()
+        civ.stats()
+
+
+
+
 
 def main2():
     pass

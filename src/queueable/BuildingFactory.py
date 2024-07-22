@@ -1,0 +1,20 @@
+# pyright: strict
+
+
+from queueable.Building import Building
+
+
+class BuildingFactory:
+    def granary(self):
+        return Building(
+            name = 'Granary',
+            hammers_req = 60,
+            culture = 0,
+            defense = 0,
+            gold = 0,
+            science = 0,
+            prod = 0,
+            great_work_art_slots = 0,
+            food = 2,
+            faith = 0,
+        )
