@@ -5,7 +5,8 @@ from queueable.Building import Building
 
 
 class BuildingFactory:
-    def granary(self):
+    @staticmethod
+    def granary():
         return Building(
             name = 'Granary',
             hammers_req = 60,

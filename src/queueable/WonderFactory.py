@@ -31,5 +31,5 @@ class WonderFactory:
             great_work_art_slots=0,
             food=0,
             faith=0,
-            hammers_req=0,
+            hammers_req=185,
         )

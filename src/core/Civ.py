@@ -29,8 +29,14 @@ class Civ:
     def queue_research(self, research: Tech):
         self.research_queue.append(research)
 
-    def queue_social_policy(self, policy: Policy):
+    def queue_many_research(self, research: List[Tech]):
+        self.research_queue.extend(research)
+
+    def queue_policy(self, policy: Policy):
         self.social_policies_queue.append(policy)
+
+    def queue_many_policy(self, policy: List[Policy]):
+        self.social_policies_queue.extend(policy)
     
     def add_city(self, city: City):
         self.cities.append(city)

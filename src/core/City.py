@@ -229,7 +229,7 @@ class City:
 
     def stats(self):
         print(f'\tpop: {self.pop}')
-        print(f'\tfood: {self.food_acc}/{Formula.food_required_to_grow(self.pop)} (+{self.get_food()}) [{self.get_growth_progress()} turns]')
+        print(f'\tfood: {round(self.food_acc)}/{round(Formula.food_required_to_grow(self.pop))} (+{self.get_food()}) [{self.get_growth_progress()} turns]')
 
         if len(self.queue) > 0:
             print(f'\tproduction: {self.hammers_acc}/{self.queue[0].get_hammers_req()} (+{self.get_prod()}) [{self.get_prod_progress()} turns]')

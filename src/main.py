@@ -44,7 +44,7 @@ def main():
     civ.add_city(capital)
 
     civ.queue_research(Tech('Pottery', 25))
-    civ.queue_social_policy(Policy('Oligarchy'))
+    civ.queue_policy(Policy('Oligarchy'))
     civ.stats()
 
     for i in range(2, 100):

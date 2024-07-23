@@ -59,13 +59,32 @@ def babylon_race():
         TileFactory.grassland_river(),
         TileFactory.plains_river(),
         TileFactory.grassland_river_stone(),
+
+        TileFactory.grassland_hill(),
+        TileFactory.forest_grassland(),
+        TileFactory.grassland_river(),
+        TileFactory.grassland_river(),
+        TileFactory.plains_river(),
+        TileFactory.grassland_river_stone(),
     ]
 
     civ = Civ(Nation.BABYLON)  # found city turn 1
 
     capital = City(base)
     capital.add_wonder(WonderFactory.palace())
-    capital.pick_tiles([0, 6])
+    capital.pick_tiles_with_strat()
     capital.queue_up_many(build_order_capital)
 
     civ.add_city(capital)
+
+    civ.queue_many_research(build_order_tech)
+    civ.queue_many_policy(build_order_policy)
+
+    for i in range(1, 100):
+        print(f"TURN {i}")
+        print()
+        civ.stats()
+        civ.next_turn()
+
+
+babylon_race()
