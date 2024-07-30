@@ -1,6 +1,7 @@
 # pyright: strict
 
 import math
+from typing import Tuple
 
 
 GAME_SPEED_MULT = 1.5  # quick speed (normal is 1)
@@ -19,6 +20,32 @@ class Formula:
     @staticmethod
     def culture_required_for_social_policy(num_policies: int, num_cities: int) -> float:
         return Formula._round_down_to_mult_of_5(Formula._base_culture_required_for_social_policy(num_policies) * Formula._social_policy_cost_factor(num_cities))
+
+    @staticmethod
+    def damage_calculator(cs_stronger_unit: int, cs_weaker_unit: int) -> Tuple[float, float]:
+        # assume that it doesn't matter who initiates the battle
+        x = cs_stronger_unit / cs_weaker_unit
+        stronger_damage = ((((x+3)/4)**4)+1)/2
+        weaker_damage = stronger_damage**-1
+        return stronger_damage*30, weaker_damage*30
+
+    @staticmethod
+    def combat_strength_percentage_based_on_health(hp_fraction: float) -> float:
+        # 20% means 20% higher than .666
+
+        highest = 1
+        lowest = .666
+
+        diff = highest-lowest
+        return lowest + diff*hp_fraction
+    
+    @staticmethod
+    def combat_strength_for_wounded(hp: int, cs: int) -> float:
+        """Assuming unit has 100 hp max"""
+        return round(Formula.combat_strength_percentage_based_on_health(hp/100)*cs)
+
+
+    # Private functions
 
     @staticmethod
     def _base_culture_required_for_social_policy(num_policies: int) -> float:

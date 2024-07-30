@@ -7,14 +7,13 @@ from queueable.Wonder import Wonder
 from tile.Tile import Tile
 from queueable.Building import Building
 from util.Formula import Formula
-from queueable.Unit import Unit
 from tile_strat.DefaultTileStrat import DefaultTileStrat
 from tile_strat.IPickTileStrat import IPickTileStrat
 
 class City:
     """Represents a city, make sure to also pick the tile the city is on!"""
 
-    def __init__(self, tiles, num_starting_tiles=7):
+    def __init__(self, tiles: List[Tile], num_starting_tiles=7):
         self.pop: int = 1
         self.food_acc: int = 0
         self.hammers_acc: int = 0

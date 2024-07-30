@@ -1,0 +1,7 @@
+rearrange stuff
+unit actions
+city actions
+switch production
+
+how much firepower
+how much city defense

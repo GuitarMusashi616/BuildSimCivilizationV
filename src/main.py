@@ -41,7 +41,7 @@ def main():
     capital.pick_tiles_with_strat()
     capital.queue_up(UnitFactory.worker())
 
-    civ.add_city(capital)
+    civ.add_city(capital, 1)
 
     civ.queue_research(Tech('Pottery', 25))
     civ.queue_policy(Policy('Oligarchy'))

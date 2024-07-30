@@ -79,3 +79,59 @@
 ## Game Speed
 - Quick is 150% faster
   - requires 10 pop to grow rather than 15 (divide by 1.5)
+
+## Damage mechanics unaccounted for
+- How do cities take damage?
+- Do they regenerate 20 HP/turn for a 200 HP town and 22 HP/turn for a 250 HP town?
+- CS gets boosted by flat 0.5 for every population?
+- How does garrisoned unit affect city combat strength
+- If 3 catapults roll up to a city with a garrison, how many turns until the city goes down or does the city wipe out the catapults?
+  - In the above scenario assume that their army has been defeated first
+  - or see what it would take to slow them down with melee fortify units, how long would you have to stall their army to take the city?
+
+## City seige use
+- How many turns*catapults needed, eg 3 means 3 turns with 1 catapult or 3 catapults 1 turn
+- How long does a catapult last, eg 2 means each catapult with last 2 volleys when focused by the city (need to include garrison of soldier vs archer and if within melee range)
+
+
+## How caravans work
+
+### Domestic trade routes
+- 4 food / prod for land route
+- 8 food / prod for sea route
+- + 0.5 food for each age advancement starting at renaissance
+
+
+
+## Try all paths through social policies and technologies?
+
+
+## Try all paths to get fastest army up ancient era
+
+### Given the following
+- a single settler
+- sets of tiles where civilization will grow
+- ability to produce settlers (past pop 1)
+- ability to produce workers and improve tiles
+
+### determine
+- how fast you can grow a population to max happiness
+- fastest way to get max hammers for an amount of civ tiles
+
+
+## Using id, repo, command_handler patterns
+- can have any objects interacting with each other
+- SettleUnit -> DeleteUnit and SpawnCity
+- what commands to min max
+
+- make builds and test them
+- test options every step of the way
+- maybe limit build orders so that build has to finish
+
+- tradeoff between settle distance and resources (hard to brute force settling options)
+
+- tradeoff between buying army or training an army?
+- what about getting the AI to war with enemy?
+
+
+
