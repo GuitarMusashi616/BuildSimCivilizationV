@@ -2,10 +2,11 @@
 
 from abc import ABC, abstractmethod
 
-from queueable.Unit import Unit
+from unit.IUnit import IUnit
+
 
 class ICiv(ABC):
     @abstractmethod
-    def add_unit(self, unit: Unit):
+    def add_unit(self, unit: IUnit):
         pass
     

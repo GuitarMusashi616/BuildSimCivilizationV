@@ -27,6 +27,8 @@ class TerrainType(Enum):
     TUNDRA_HILL = auto()
     TUNDRA_HILL_RIVER = auto()
 
+    FOREST_GRASSLAND = auto()
+
     COAST = auto()
 
     @staticmethod
@@ -56,6 +58,16 @@ class TerrainType(Enum):
             return TileOutput(
                 food = 1,
                 prod = 0,
+                gold = 0,
+                culture = 0,
+                science = 0,
+                faith = 0,
+            )
+        
+        if terrain == TerrainType.FOREST_GRASSLAND:
+            return TileOutput(
+                food = 1,
+                prod = 1,
                 gold = 0,
                 culture = 0,
                 science = 0,

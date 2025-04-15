@@ -1,5 +1,6 @@
 # pyright: strict
 
+from core.Coord import Coord
 from tile.ITile import ITile
 from tile.ImprovementType import ImprovementType
 from tile.ResourceType import ResourceType
@@ -7,10 +8,12 @@ from tile.TerrainType import TerrainType
 from tile.TileOutput import TileOutput
 
 class Tile(ITile):
-    def __init__(self, terrain: TerrainType, resource: ResourceType = ResourceType.NONE, improvement: ImprovementType = ImprovementType.NONE, is_worked: bool = False, has_city: bool = False):
+    def __init__(self, coord: Coord, terrain: TerrainType, resource: ResourceType = ResourceType.NONE, improvement: ImprovementType = ImprovementType.NONE, is_worked: bool = False, has_city: bool = False):
         self.terrain = terrain
         self.resource = resource
         self.improvement = improvement
+
+        self._coord = coord
         self._is_worked = is_worked
         self._has_city = has_city
 
@@ -30,6 +33,10 @@ class Tile(ITile):
     def has_city(self, value: bool):
         self._has_city = value
 
+    @property
+    def coord(self) -> Coord:
+        return self._coord
+    
     @property
     def output(self) -> TileOutput:
         output = TerrainType.base_stats(self.terrain)

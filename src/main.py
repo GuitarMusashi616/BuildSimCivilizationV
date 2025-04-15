@@ -2,12 +2,15 @@
 
 from typing import List
 from core.Civ import Civ
+from core.Coord import Coord
 from enums.Nation import Nation
 from researchable.Policy import Policy
 from researchable.Tech import Tech
 from queueable.UnitFactory import UnitFactory
 from tile.ITile import ITile
-from tile.TileFactory import TileFactory
+from tile.ResourceType import ResourceType
+from tile.TerrainType import TerrainType
+from tile.Tile import Tile
 
 def main():
     # first tile is the city
@@ -15,20 +18,21 @@ def main():
     civ = Civ(Nation.ARABIA)
 
     base: List[ITile] = [
-        TileFactory.grassland_river_city(),
-        TileFactory.grassland_hill(),
-        TileFactory.forest_grassland(),
-        TileFactory.grassland_river(),
-        TileFactory.grassland_river(),
-        TileFactory.plains_river(),
-        TileFactory.grassland_river_stone(),
+        Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(1, 0), TerrainType.GRASSLAND_HILL),
+        Tile(Coord(2, 0), TerrainType.FOREST_GRASSLAND),
+        Tile(Coord(2, 1), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(1, 2), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(0, 1), TerrainType.PLAINS_RIVER),
+        Tile(Coord(0, 0), TerrainType.GRASSLAND_RIVER, ResourceType.STONE),
 
-        TileFactory.grassland_hill(),
-        TileFactory.forest_grassland(),
-        TileFactory.grassland_river(),
-        TileFactory.grassland_river(),
-        TileFactory.plains_river(),
-        TileFactory.grassland_river_stone(),
+        Tile(Coord(2, 2), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(2, 1), TerrainType.GRASSLAND_HILL),
+        Tile(Coord(3, 1), TerrainType.FOREST_GRASSLAND),
+        Tile(Coord(3, 2), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(2, 3), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(1, 2), TerrainType.PLAINS_RIVER),
+        Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER, ResourceType.STONE),
     ]
 
     capital = civ.create_city(base)

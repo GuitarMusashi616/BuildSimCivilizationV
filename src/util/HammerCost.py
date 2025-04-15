@@ -1,6 +1,6 @@
 # pyright: strict
 
-from queueable.UnitType import UnitType
+from unit.UnitType import UnitType
 
 
 class HammerCost:

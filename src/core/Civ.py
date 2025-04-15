@@ -5,12 +5,12 @@ import math
 from typing import Dict, List
 from core.City import City
 from core.ICiv import ICiv
-from queueable.Unit import Unit
 from tile.ITile import ITile
 from util.Formula import Formula
 from enums.Nation import Nation
 from researchable.Policy import Policy
 from researchable.Tech import Tech
+from unit.IUnit import IUnit
 
 STARTING_HAPPINESS = 9
 
@@ -24,7 +24,7 @@ class Civ(ICiv):
         self.social_policies: List[Policy] = []
 
         self.cities: Dict[int, City] = {}
-        self.units: Dict[int, Unit] = {}
+        self.units: Dict[int, IUnit] = {}
 
         self.gold_acc = 0
         self.science_acc = 0
@@ -48,22 +48,22 @@ class Civ(ICiv):
     def queue_many_policy(self, policy: List[Policy]):
         self.social_policies_queue.extend(policy)
     
-    def add_city(self, city: City):
+    def _add_city(self, city: City):
         self.cities[len(self.cities)] = city
     
     def create_city(self, tiles: List[ITile], num_starting_tiles: int=7):
         is_capital = len(self.cities) < 1
         city = City(tiles, self, num_starting_tiles, is_capital)
-        self.add_city(city)
+        self._add_city(city)
         return city
     
     def get_city(self, city_id: int):
         assert city_id in self.cities, f"City with city_id: {city_id} does not exist"
         return self.cities[city_id]
 
-    def add_unit(self, unit: Unit):
+    def add_unit(self, unit: IUnit):
         self.units[len(self.units)] = unit
-
+    
     def remove_unit(self, unitId: int):
         # assert 0 <= unitId < len(self.units), f"Cannot remove unitId: {unitId}"
         assert self.units[unitId], f"Unit with unitId: {unitId} cannot be deleted"

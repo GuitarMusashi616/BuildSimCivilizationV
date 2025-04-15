@@ -2,6 +2,7 @@
 
 from abc import ABC, abstractmethod
 
+from core.Coord import Coord
 from tile.TileOutput import TileOutput
 
 class ITile(ABC):
@@ -23,6 +24,11 @@ class ITile(ABC):
     @has_city.setter
     @abstractmethod
     def has_city(self, value: bool):
+        pass
+
+    @property
+    @abstractmethod
+    def coord(self) -> Coord:
         pass
 
     @property

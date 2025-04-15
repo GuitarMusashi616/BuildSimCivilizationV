@@ -5,7 +5,7 @@ import math
 from typing import List
 from core.ICiv import ICiv
 from queueable.IQueue import IQueue
-from queueable.Unit import Unit
+from queueable.UnitInProgress import UnitInProgress
 from queueable.Wonder import Wonder
 from queueable.WonderFactory import WonderFactory
 from tile.ITile import ITile
@@ -195,7 +195,7 @@ class City:
 
     def get_prod_progress(self) -> int:
         try:
-            return math.ceil((self.queue[0].get_hammers_req() - self.hammers_acc) / self.get_prod())
+            return math.ceil((self.queue[0].hammers_req - self.hammers_acc) / self.get_prod())
         except ZeroDivisionError:
             return -1
 
@@ -230,8 +230,8 @@ class City:
             if isinstance(queueable, Building):
                 self.add_building(queueable)
             
-            if isinstance(queueable, Unit):
-                self.civ
+            if isinstance(queueable, UnitInProgress):
+                self.civ.add_unit(queueable.to_unit(self.tiles[0].coord))
         
         
 
@@ -244,7 +244,7 @@ class City:
         """Returns the total production hammers required to complete current item, errors if nothing queued"""
 
         assert self.has_queued, "Nothing queued up"
-        return self.queue[0].get_hammers_req()
+        return self.queue[0].hammers_req
 
 
         
@@ -256,7 +256,7 @@ class City:
         print(f'\tfood: {round(self.food_acc)}/{round(Formula.food_required_to_grow(self.pop))} (+{self.get_food()}) [{self.get_growth_progress()} turns]')
 
         if len(self.queue) > 0:
-            print(f'\tproduction: {self.hammers_acc}/{self.queue[0].get_hammers_req()} (+{self.get_prod()}) [{self.get_prod_progress()} turns]')
+            print(f'\tproduction: {self.hammers_acc}/{self.queue[0].hammers_req} (+{self.get_prod()}) [{self.get_prod_progress()} turns]')
         else:
             print(f'\tproduction: +{self.get_prod()}')
 

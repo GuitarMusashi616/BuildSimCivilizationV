@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from queueable.UnitType import UnitType
+from unit.UnitType import UnitType
 
 
 @dataclass

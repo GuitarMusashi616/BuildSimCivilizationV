@@ -8,7 +8,7 @@ from commands.TrainUnit import TrainUnit
 from core.Game import Game
 from enums.Nation import Nation
 from queueable.UnitFactory import UnitFactory
-from queueable.UnitType import UnitType
+from unit.UnitType import UnitType
 
 class TestUnits(unittest.TestCase):
     def test_settlers(self):

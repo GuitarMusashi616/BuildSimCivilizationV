@@ -1,6 +1,7 @@
 # pyright: strict
 
 from typing import List
+from core.Coord import Coord
 from queueable.BuildingFactory import BuildingFactory
 from core.Civ import Civ
 from enums.Nation import Nation
@@ -8,7 +9,9 @@ from queueable.IQueue import IQueue
 from researchable.PolicyFactory import PolicyFactory
 from researchable.TechFactory import TechFactory
 from tile.ITile import ITile
-from tile.TileFactory import TileFactory
+from tile.ResourceType import ResourceType
+from tile.TerrainType import TerrainType
+from tile.Tile import Tile
 from queueable.UnitFactory import UnitFactory
 from queueable.WonderFactory import WonderFactory
 
@@ -18,20 +21,21 @@ def babylon_race_fixture() -> Civ:
     build_order_policy = [PolicyFactory.oligarchy()]
 
     base: List[ITile] = [
-        TileFactory.grassland_river_city(),
-        TileFactory.grassland_hill(),
-        TileFactory.forest_grassland(),
-        TileFactory.grassland_river(),
-        TileFactory.grassland_river(),
-        TileFactory.plains_river(),
-        TileFactory.grassland_river_stone(),
+        Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(1, 0), TerrainType.GRASSLAND_HILL),
+        Tile(Coord(2, 0), TerrainType.FOREST_GRASSLAND),
+        Tile(Coord(2, 1), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(1, 2), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(0, 1), TerrainType.PLAINS_RIVER),
+        Tile(Coord(0, 0), TerrainType.GRASSLAND_RIVER, ResourceType.STONE),
 
-        TileFactory.grassland_hill(),
-        TileFactory.forest_grassland(),
-        TileFactory.grassland_river(),
-        TileFactory.grassland_river(),
-        TileFactory.plains_river(),
-        TileFactory.grassland_river_stone(),
+        Tile(Coord(2, 2), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(2, 1), TerrainType.GRASSLAND_HILL),
+        Tile(Coord(3, 1), TerrainType.FOREST_GRASSLAND),
+        Tile(Coord(3, 2), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(2, 3), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(1, 2), TerrainType.PLAINS_RIVER),
+        Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER, ResourceType.STONE),
     ]
 
     civ = Civ(Nation.BABYLON)  # found city turn 1
@@ -46,15 +50,14 @@ def babylon_race_fixture() -> Civ:
 
 def test():
     base: List[ITile] = [
-        TileFactory.grassland_river_city(),
-        TileFactory.grassland_hill(),
-        TileFactory.forest_grassland(),
-        TileFactory.grassland_river(),
-        TileFactory.grassland_river(),
-        TileFactory.plains_river(),
-        TileFactory.grassland_river_stone(),
+        Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(1, 0), TerrainType.GRASSLAND_HILL),
+        Tile(Coord(2, 0), TerrainType.FOREST_GRASSLAND),
+        Tile(Coord(2, 1), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(1, 2), TerrainType.GRASSLAND_RIVER),
+        Tile(Coord(0, 1), TerrainType.PLAINS_RIVER),
+        Tile(Coord(0, 0), TerrainType.GRASSLAND_RIVER, ResourceType.STONE),
     ]
-
 
     civ1 = Civ(Nation.BABYLON)
     civ2 = Civ(Nation.ARABIA)
@@ -69,8 +72,8 @@ def test():
     print([x.pop for x in civ2.cities.values()])
 
 
-    a = TileFactory.grassland()
-    b = TileFactory.grassland()
+    a = Tile(Coord(0, 0), TerrainType.GRASSLAND_HILL),
+    b = Tile(Coord(1, 0), TerrainType.GRASSLAND_HILL),
 
     print(a.__dict__)
     print(b.__dict__)

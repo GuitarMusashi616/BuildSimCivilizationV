@@ -1,23 +1,24 @@
+from core.Coord import Coord
 from queueable.IQueue import IQueue
-from queueable.Unit import Unit
-from queueable.UnitType import UnitType
+from queueable.UnitInProgress import UnitInProgress
+from unit.UnitType import UnitType
 
 
 class UnitFactory:
 
     @staticmethod
-    def settler() -> Unit:
-        return Unit(UnitType.SETTLER, 56)
+    def settler() -> UnitInProgress:
+        return UnitInProgress(UnitType.SETTLER, 56)
     
     @staticmethod
-    def worker() -> Unit:
-        return Unit(UnitType.WORKER, 46)
+    def worker() -> UnitInProgress:
+        return UnitInProgress(UnitType.WORKER, 46)
 
     @staticmethod
-    def warrior() -> Unit:
-        return Unit(UnitType.WARRIOR, 26)
+    def warrior() -> UnitInProgress:
+        return UnitInProgress(UnitType.WARRIOR, 26)
 
-    def spawn(self, unit_type: UnitType) -> Unit:
+    def spawn(self, unit_type: UnitType) -> UnitInProgress:
         if unit_type is UnitType.SETTLER:
             return self.settler()
         
