@@ -12,7 +12,7 @@ class DefaultTileStrat(IPickTileStrat):
         assert len(tiles) > 1, "must pick between at least 2 tiles"
 
         tile_copy = [(i+1, x) for i,x in enumerate(tiles[1:])]
-        tile_copy.sort(key=lambda ix: ix[1].food + ix[1].prod, reverse=True)
+        tile_copy.sort(key=lambda ix: ix[1].output.food + ix[1].output.prod, reverse=True)
 
         return [0] + [i for i,_ in tile_copy[:how_many]]
 

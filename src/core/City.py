@@ -1,4 +1,4 @@
-# pyright: basic
+# pyright: strict
 
 import math
 from typing import List
@@ -13,7 +13,9 @@ from tile_strat.IPickTileStrat import IPickTileStrat
 class City:
     """Represents a city, make sure to also pick the tile the city is on!"""
 
-    def __init__(self, tiles: List[Tile], num_starting_tiles=7):
+    # first tile is the city
+    # then start above it going clockwise (start on upper right if two tiles above first tile)
+    def __init__(self, tiles: List[Tile], num_starting_tiles: int=7):
         self.pop: int = 1
         self.food_acc: int = 0
         self.hammers_acc: int = 0
@@ -60,11 +62,11 @@ class City:
     def get_pop(self):
         return self.pop
 
-    def get_prod(self):
+    def get_prod(self) -> int:
         prod = 0
         for tile in self.tiles:
             if tile.is_worked:
-                prod += tile.prod
+                prod += tile.output.prod
         
         for wonder in self.wonders:
             prod += wonder.prod
@@ -74,12 +76,12 @@ class City:
 
         return prod
 
-    def get_base_food(self):
+    def get_base_food(self) -> int:
         """Returns the base food before the existing population eats it"""
         food = 0
         for tile in self.tiles:
             if tile.is_worked:
-                food += tile.food
+                food += tile.output.food
         
         for wonder in self.wonders:
             food += wonder.food
@@ -94,12 +96,12 @@ class City:
         """Returns the excess food"""
         return self.get_base_food() - self.pop*2
 
-    def get_gold(self):
+    def get_gold(self) -> int:
         gold = 0
 
         for tile in self.tiles:
             if tile.is_worked:
-                gold += tile.gold
+                gold += tile.output.gold
 
         for wonder in self.wonders:
             gold += wonder.gold
@@ -109,12 +111,12 @@ class City:
 
         return gold
 
-    def get_science(self):
+    def get_science(self) -> int:
         science = 0
 
         for tile in self.tiles:
             if tile.is_worked:
-                science += tile.science
+                science += tile.output.science
 
         for wonder in self.wonders:
             science += wonder.science
@@ -128,12 +130,12 @@ class City:
 
         return science
 
-    def get_faith(self):
+    def get_faith(self) -> int:
         faith = 0
 
         for tile in self.tiles:
             if tile.is_worked:
-                faith += tile.faith
+                faith += tile.output.faith
 
         for wonder in self.wonders:
             faith += wonder.faith
@@ -146,12 +148,12 @@ class City:
     def get_tourism(self):
         return 0
 
-    def get_culture(self):
+    def get_culture(self) -> int:
         culture = 0
 
         for tile in self.tiles:
             if tile.is_worked:
-                culture += tile.culture
+                culture += tile.output.culture
 
         for wonder in self.wonders:
             culture += wonder.culture

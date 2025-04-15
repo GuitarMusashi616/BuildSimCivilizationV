@@ -92,5 +92,5 @@ def main2():
     # units = {warrior: 1, scout: 2}
 
 
-
-main()
+if __name__ == "__main__":
+    main()

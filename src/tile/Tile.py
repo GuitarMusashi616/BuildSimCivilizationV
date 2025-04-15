@@ -1,24 +1,19 @@
 # pyright: strict
 
-# from typing import List
-# from Resource import Resource
-# from Improvement import Improvement
-from dataclasses import dataclass
+from tile.ImprovementType import ImprovementType
+from tile.ResourceType import ResourceType
+from tile.TerrainType import TerrainType
+from tile.TileOutput import TileOutput
 
-@dataclass
 class Tile:
-    """Keeps track of tile and improvements on that tile that make up a city"""
+    def __init__(self, terrain: TerrainType, resource: ResourceType, improvement: ImprovementType, is_worked: bool = False):
+        self.terrain = terrain
+        self.resource = resource
+        self.improvement = improvement
+        self.is_worked = is_worked
 
-    food: int
-    prod: int
-    gold: int
-    culture: int
-    science: int
-    faith: int
+    @property
+    def output(self) -> TileOutput:
+        return TerrainType.base_stats(self.terrain)
 
-    # resources: List[Resource]
-    # improvements: List[Improvement]
-    is_worked: bool = False
-
-    # def __init__(self, food: int, prod: int, gold: int, resources: List[Resource]):
-    #     pass
+    

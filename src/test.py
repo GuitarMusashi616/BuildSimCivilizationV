@@ -12,6 +12,42 @@ from tile.TileFactory import TileFactory
 from queueable.UnitFactory import UnitFactory
 from queueable.WonderFactory import WonderFactory
 
+def babylon_race_fixture() -> Civ:
+    build_order_capital: List[IQueue] = [UnitFactory.worker(), BuildingFactory.granary(), WonderFactory.great_library()]
+    build_order_tech = [TechFactory.pottery(), TechFactory.writing()]
+    build_order_policy = [PolicyFactory.oligarchy()]
+
+    base = [
+        TileFactory.grassland_river_city(),
+        TileFactory.grassland_hill(),
+        TileFactory.forest_grassland(),
+        TileFactory.grassland_river(),
+        TileFactory.grassland_river(),
+        TileFactory.plains_river(),
+        TileFactory.grassland_river_stone(),
+
+        TileFactory.grassland_hill(),
+        TileFactory.forest_grassland(),
+        TileFactory.grassland_river(),
+        TileFactory.grassland_river(),
+        TileFactory.plains_river(),
+        TileFactory.grassland_river_stone(),
+    ]
+
+    civ = Civ(Nation.BABYLON)  # found city turn 1
+
+    capital = City(base)
+    capital.add_wonder(WonderFactory.palace())
+    capital.pick_tiles_with_strat()
+    capital.queue_up_many(build_order_capital)
+
+    civ.add_city(capital, 1)
+
+    civ.queue_many_research(build_order_tech)
+    civ.queue_many_policy(build_order_policy)
+    return civ
+
+
 def test():
     base = [
         TileFactory.grassland_river_city(),
@@ -49,38 +85,7 @@ def test():
 def babylon_race():
     """Rush building the great library as babylon, show what happens every turn"""
 
-    build_order_capital: List[IQueue] = [UnitFactory.worker(), BuildingFactory.granary(), WonderFactory.great_library()]
-    build_order_tech = [TechFactory.pottery(), TechFactory.writing()]
-    build_order_policy = [PolicyFactory.oligarchy()]
-
-    base = [
-        TileFactory.grassland_river_city(),
-        TileFactory.grassland_hill(),
-        TileFactory.forest_grassland(),
-        TileFactory.grassland_river(),
-        TileFactory.grassland_river(),
-        TileFactory.plains_river(),
-        TileFactory.grassland_river_stone(),
-
-        TileFactory.grassland_hill(),
-        TileFactory.forest_grassland(),
-        TileFactory.grassland_river(),
-        TileFactory.grassland_river(),
-        TileFactory.plains_river(),
-        TileFactory.grassland_river_stone(),
-    ]
-
-    civ = Civ(Nation.BABYLON)  # found city turn 1
-
-    capital = City(base)
-    capital.add_wonder(WonderFactory.palace())
-    capital.pick_tiles_with_strat()
-    capital.queue_up_many(build_order_capital)
-
-    civ.add_city(capital, 1)
-
-    civ.queue_many_research(build_order_tech)
-    civ.queue_many_policy(build_order_policy)
+    civ = babylon_race_fixture()
 
     for i in range(1, 100):
         print(f"TURN {i}")
@@ -91,39 +96,7 @@ def babylon_race():
 
 def unit_city_actions():
     """Be able to queue actions like Settle() for units and rearrange priority?"""
-
-    build_order_capital: List[IQueue] = [UnitFactory.worker(), BuildingFactory.granary(), WonderFactory.great_library()]
-    build_order_tech = [TechFactory.pottery(), TechFactory.writing()]
-    build_order_policy = [PolicyFactory.oligarchy()]
-
-    base = [
-        TileFactory.grassland_river_city(),
-        TileFactory.grassland_hill(),
-        TileFactory.forest_grassland(),
-        TileFactory.grassland_river(),
-        TileFactory.grassland_river(),
-        TileFactory.plains_river(),
-        TileFactory.grassland_river_stone(),
-
-        TileFactory.grassland_hill(),
-        TileFactory.forest_grassland(),
-        TileFactory.grassland_river(),
-        TileFactory.grassland_river(),
-        TileFactory.plains_river(),
-        TileFactory.grassland_river_stone(),
-    ]
-
-    civ = Civ(Nation.BABYLON)  # found city turn 1
-
-    capital = City(base)
-    capital.add_wonder(WonderFactory.palace())
-    capital.pick_tiles_with_strat()
-    capital.queue_up_many(build_order_capital)
-
-    civ.add_city(capital, 1)
-
-    civ.queue_many_research(build_order_tech)
-    civ.queue_many_policy(build_order_policy)
+    civ = babylon_race_fixture()
 
     for i in range(1, 100):
         print(f"TURN {i}")
@@ -132,5 +105,5 @@ def unit_city_actions():
         civ.next_turn()
 
 
-
-unit_city_actions()
+if __name__ == "__main__":
+    unit_city_actions()
