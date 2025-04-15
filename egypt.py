@@ -32,9 +32,6 @@ def egypt_base_fixture():
     civ = Civ(Nation.EGYPT)
 
     capital = City(base)
-
-    capital.add_wonder(WonderFactory.palace())
-    capital.pick_tiles_with_strat()
     capital.queue_up(BuildingFactory.granary())
 
     civ.add_city(capital, 0)

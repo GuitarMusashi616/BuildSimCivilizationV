@@ -1,9 +1,13 @@
 # pyright: strict
 
+from __future__ import annotations
 import math
 from typing import List
+from core.ICiv import ICiv
 from queueable.IQueue import IQueue
+from queueable.Unit import Unit
 from queueable.Wonder import Wonder
+from queueable.WonderFactory import WonderFactory
 from tile.ITile import ITile
 from queueable.Building import Building
 from util.Formula import Formula
@@ -13,7 +17,7 @@ from tile_strat.IPickTileStrat import IPickTileStrat
 class City:
     """Represents a city, make sure to also pick the tile the city is on!"""
 
-    def __init__(self, tiles: List[ITile], num_starting_tiles: int=7):
+    def __init__(self, tiles: List[ITile], civ: ICiv, num_starting_tiles: int=7, is_capital: bool=False):
         """first tile is the city then start above it going clockwise (start on upper right if two tiles above first tile)"""
 
         self.pop: int = 1
@@ -21,6 +25,7 @@ class City:
         self.hammers_acc: int = 0
         self.culture_acc: int = 0
 
+        self.civ: ICiv = civ
         self.tiles: List[ITile] = tiles[:num_starting_tiles]
         self.future_tiles: List[ITile] = tiles[num_starting_tiles:]
         self.tile_strat: IPickTileStrat = DefaultTileStrat()
@@ -28,8 +33,16 @@ class City:
         self.wonders: List[Wonder] = []
         self.buildings: List[Building] = []
         self.queue: List[IQueue] = []
+        self.startup(is_capital)
 
+    def startup(self, is_capital: bool=False):
+        """Does the initial city setup"""
         self.tiles[0].has_city = True
+
+        if is_capital:
+            self.add_wonder(WonderFactory.palace())
+
+        self.pick_tiles_with_strat()
 
     def reset_tiles(self):
         for tile in self.tiles:
@@ -216,6 +229,9 @@ class City:
 
             if isinstance(queueable, Building):
                 self.add_building(queueable)
+            
+            if isinstance(queueable, Unit):
+                self.civ
         
         
 

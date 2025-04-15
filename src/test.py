@@ -2,7 +2,6 @@
 
 from typing import List
 from queueable.BuildingFactory import BuildingFactory
-from core.City import City
 from core.Civ import Civ
 from enums.Nation import Nation
 from queueable.IQueue import IQueue
@@ -37,12 +36,8 @@ def babylon_race_fixture() -> Civ:
 
     civ = Civ(Nation.BABYLON)  # found city turn 1
 
-    capital = City(base)
-    capital.add_wonder(WonderFactory.palace())
-    capital.pick_tiles_with_strat()
+    capital = civ.create_city(base)
     capital.queue_up_many(build_order_capital)
-
-    civ.add_city(capital, 1)
 
     civ.queue_many_research(build_order_tech)
     civ.queue_many_policy(build_order_policy)
@@ -63,14 +58,12 @@ def test():
 
     civ1 = Civ(Nation.BABYLON)
     civ2 = Civ(Nation.ARABIA)
-    city1 = City(base)
+    city1 = civ1.create_city([])
     city1.pop = 5
-    city2 = City(base)
+    city2 = civ2.create_city([])
     city2.pop = 7
+    civ2.create_city(base)
 
-    civ1.add_city(city1, 1)
-    civ1.add_city(city2, 2)
-    civ2.add_city(City(base), 1)
 
     print([x.pop for x in civ1.cities.values()])
     print([x.pop for x in civ2.cities.values()])

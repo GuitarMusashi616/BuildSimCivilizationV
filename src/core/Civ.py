@@ -1,9 +1,12 @@
 # pyright: strict
 
+from __future__ import annotations
 import math
 from typing import Dict, List
 from core.City import City
+from core.ICiv import ICiv
 from queueable.Unit import Unit
+from tile.ITile import ITile
 from util.Formula import Formula
 from enums.Nation import Nation
 from researchable.Policy import Policy
@@ -11,7 +14,7 @@ from researchable.Tech import Tech
 
 STARTING_HAPPINESS = 9
 
-class Civ:
+class Civ(ICiv):
     def __init__(self, nation: Nation):
         self.nation = nation
 
@@ -45,15 +48,21 @@ class Civ:
     def queue_many_policy(self, policy: List[Policy]):
         self.social_policies_queue.extend(policy)
     
-    def add_city(self, city: City, city_id: int):
-        self.cities[city_id] = city
-
+    def add_city(self, city: City):
+        self.cities[len(self.cities)] = city
+    
+    def create_city(self, tiles: List[ITile], num_starting_tiles: int=7):
+        is_capital = len(self.cities) < 1
+        city = City(tiles, self, num_starting_tiles, is_capital)
+        self.add_city(city)
+        return city
+    
     def get_city(self, city_id: int):
         assert city_id in self.cities, f"City with city_id: {city_id} does not exist"
         return self.cities[city_id]
 
-    def add_unit(self, unit: Unit, unit_id: int):
-        self.units[unit_id] = unit
+    def add_unit(self, unit: Unit):
+        self.units[len(self.units)] = unit
 
     def remove_unit(self, unitId: int):
         # assert 0 <= unitId < len(self.units), f"Cannot remove unitId: {unitId}"

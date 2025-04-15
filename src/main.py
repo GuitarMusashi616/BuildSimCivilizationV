@@ -1,13 +1,11 @@
 # pyright: strict
 
 from typing import List
-from core.City import City
 from core.Civ import Civ
 from enums.Nation import Nation
 from researchable.Policy import Policy
 from researchable.Tech import Tech
 from queueable.UnitFactory import UnitFactory
-from queueable.WonderFactory import WonderFactory
 from tile.ITile import ITile
 from tile.TileFactory import TileFactory
 
@@ -33,18 +31,14 @@ def main():
         TileFactory.grassland_river_stone(),
     ]
 
-    capital = City(base)
-    capital.add_wonder(WonderFactory.palace())
-    capital.pick_tiles_with_strat()
+    capital = civ.create_city(base)
     capital.queue_up(UnitFactory.worker())
-
-    civ.add_city(capital, 1)
 
     civ.queue_research(Tech('Pottery', 25))
     civ.queue_policy(Policy('Oligarchy'))
     civ.stats()
 
-    for i in range(2, 100):
+    for i in range(2, 20):
         civ.next_turn()
         print(f"TURN {i}")
         print()
