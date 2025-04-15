@@ -52,6 +52,16 @@ class TerrainType(Enum):
                 faith = 0,
             )
 
+        if terrain == TerrainType.COAST:
+            return TileOutput(
+                food = 1,
+                prod = 0,
+                gold = 0,
+                culture = 0,
+                science = 0,
+                faith = 0,
+            )
+
         assert False, f"Terrain {terrain} has no base stats available"
         
         

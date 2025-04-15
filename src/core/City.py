@@ -29,11 +29,13 @@ class City:
         self.buildings: List[Building] = []
         self.queue: List[IQueue] = []
 
+        self.tiles[0].has_city = True
+
     def reset_tiles(self):
         for tile in self.tiles:
             tile.is_worked = False
     
-    def pick_tiles(self, indices: List[ITile]):
+    def pick_tiles(self, indices: List[int]):
         for index in indices:
             self.tiles[index].is_worked = True
 
@@ -185,11 +187,27 @@ class City:
             return -1
 
     def next_turn(self):
-        self.food_acc += self.get_food()
+        # culture
         self.culture_acc += self.get_culture()
-        self.hammers_acc += self.get_prod()
+
+        culture_req = self.get_border_growth_culture_req()
+        if self.culture_acc >= culture_req and self.future_tiles:
+            self.culture_acc -= culture_req
+            self.tiles.append(self.future_tiles.pop(0))
+
+        # growth
+        self.food_acc += self.get_food()
+
+        food_req = Formula.food_required_to_grow(self.pop)
+        if self.food_acc >= food_req:
+            self.food_acc -= food_req
+            self.pop += 1
+            self.pick_tiles_with_strat()
+
 
         # production complete
+        self.hammers_acc += self.get_prod()
+
         if self.has_queued() and self.hammers_acc >= self.total_hammers_req():
             self.hammers_acc -= self.total_hammers_req()
             queueable = self.queue.pop(0)
@@ -199,18 +217,7 @@ class City:
             if isinstance(queueable, Building):
                 self.add_building(queueable)
         
-        # growth
-        food_req = Formula.food_required_to_grow(self.pop)
-        if self.food_acc >= food_req:
-            self.food_acc -= food_req
-            self.pop += 1
-            self.pick_tiles_with_strat()
         
-        # culture
-        culture_req = self.get_border_growth_culture_req()
-        if self.culture_acc >= culture_req and self.future_tiles:
-            self.culture_acc -= culture_req
-            self.tiles.append(self.future_tiles.pop(0))
 
 
     def has_queued(self):

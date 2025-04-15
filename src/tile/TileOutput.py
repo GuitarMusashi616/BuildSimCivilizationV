@@ -33,3 +33,26 @@ class TileOutput:
             science = self.science - other.science,
             faith = self.faith - other.faith,
         )
+
+    def set_minimum(self, other: TileOutput):
+        """Set the minimum of each of this output factors to be at least as much as other eg. make sure this tile has at least 2 food, 1 prod, & 1 gold"""
+        return TileOutput(
+            food = other.food if self.food < other.food else self.food,
+            prod = other.prod if self.prod < other.prod else self.prod,
+            gold = other.gold if self.gold < other.gold else self.gold,
+            culture = other.culture if self.culture < other.culture else self.culture,
+            science = other.science if self.science < other.science else self.science,
+            faith = other.faith if self.faith < other.faith else self.faith,
+        )
+
+    @staticmethod
+    def minimum_if_tile_has_city() -> TileOutput:
+        return TileOutput(
+            food = 2,
+            prod = 1,
+            gold = 0,
+            culture = 0,
+            science = 0,
+            faith = 0,
+        )
+    

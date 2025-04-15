@@ -24,14 +24,18 @@ class Tile(ITile):
 
     @property
     def has_city(self) -> bool:
-        return self.has_city
+        return self._has_city
 
     @has_city.setter
     def has_city(self, value: bool):
-        self.has_city = value
+        self._has_city = value
 
     @property
     def output(self) -> TileOutput:
-        return TerrainType.base_stats(self.terrain)
+        output = TerrainType.base_stats(self.terrain)
+        output += ResourceType.add_stats(self.resource)
+        if self.has_city:
+            output = output.set_minimum(TileOutput.minimum_if_tile_has_city())
+        return output
 
     

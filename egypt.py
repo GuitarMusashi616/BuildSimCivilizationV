@@ -1,3 +1,4 @@
+from queueable.BuildingFactory import BuildingFactory
 from src.core.Civ import Civ, Nation
 from queueable.WonderFactory import WonderFactory
 from test import babylon_race_fixture
@@ -34,11 +35,31 @@ def egypt_base_fixture():
 
     capital.add_wonder(WonderFactory.palace())
     capital.pick_tiles_with_strat()
+    capital.queue_up(BuildingFactory.granary())
 
     civ.add_city(capital, 0)
 
     return civ
 
-if __name__ == "__main__":
-    civ = egypt_turn_0()
+def test_lock_hammers_for_extra_hammers_trick():
+    """When a city grows it should automatically assign the new population to a tile, if that tile has production then it immediately is added towards the goal"""
+    civ = egypt_base_fixture()
+    print("Turn 1")
     civ.stats()
+    for i in range(4):
+        print(f"Turn {i+2}")
+        civ.next_turn()
+        civ.stats()
+    city = civ.cities[0]
+    assert city.hammers_acc == 22, f"should be 22/60 towards the granary, instead its {city.hammers_acc}/{city.total_hammers_req()}"
+    
+
+if __name__ == "__main__":
+    # civ = egypt_base_fixture()
+    # civ.stats()
+    # for i in range(10):
+    #     print(f"Turn {i+2}")
+    #     civ.next_turn()
+    #     civ.stats()
+    # print()
+    test_lock_hammers_for_extra_hammers_trick()
