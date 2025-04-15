@@ -1,12 +1,12 @@
 # pyright: strict
 
 from typing import List
-from tile.Tile import Tile
+from tile.ITile import ITile
 from tile_strat.IPickTileStrat import IPickTileStrat
 
 
 class DefaultTileStrat(IPickTileStrat):
-    def pick_tiles(self, tiles: List[Tile], how_many: int) -> List[int]:
+    def pick_tiles(self, tiles: List[ITile], how_many: int) -> List[int]:
         """Given the tiles that make up the city and how many citizens to work, return the indices of the tiles to work"""
         assert how_many <= len(tiles), "not enough tiles to pick that many"
         assert len(tiles) > 1, "must pick between at least 2 tiles"

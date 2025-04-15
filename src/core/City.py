@@ -4,7 +4,7 @@ import math
 from typing import List
 from queueable.IQueue import IQueue
 from queueable.Wonder import Wonder
-from tile.Tile import Tile
+from tile.ITile import ITile
 from queueable.Building import Building
 from util.Formula import Formula
 from tile_strat.DefaultTileStrat import DefaultTileStrat
@@ -13,16 +13,16 @@ from tile_strat.IPickTileStrat import IPickTileStrat
 class City:
     """Represents a city, make sure to also pick the tile the city is on!"""
 
-    # first tile is the city
-    # then start above it going clockwise (start on upper right if two tiles above first tile)
-    def __init__(self, tiles: List[Tile], num_starting_tiles: int=7):
+    def __init__(self, tiles: List[ITile], num_starting_tiles: int=7):
+        """first tile is the city then start above it going clockwise (start on upper right if two tiles above first tile)"""
+
         self.pop: int = 1
         self.food_acc: int = 0
         self.hammers_acc: int = 0
         self.culture_acc: int = 0
 
-        self.tiles: List[Tile] = tiles[:num_starting_tiles]
-        self.future_tiles: List[Tile] = tiles[num_starting_tiles:]
+        self.tiles: List[ITile] = tiles[:num_starting_tiles]
+        self.future_tiles: List[ITile] = tiles[num_starting_tiles:]
         self.tile_strat: IPickTileStrat = DefaultTileStrat()
 
         self.wonders: List[Wonder] = []
@@ -33,7 +33,7 @@ class City:
         for tile in self.tiles:
             tile.is_worked = False
     
-    def pick_tiles(self, indices: List[int]):
+    def pick_tiles(self, indices: List[ITile]):
         for index in indices:
             self.tiles[index].is_worked = True
 

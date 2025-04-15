@@ -27,6 +27,8 @@ class TerrainType(Enum):
     TUNDRA_HILL = auto()
     TUNDRA_HILL_RIVER = auto()
 
+    COAST = auto()
+
     @staticmethod
     def base_stats(terrain: TerrainType) -> TileOutput:
         """Return the base stats of food, prod, etc for the terrain eg. grassland hill has 2 hammers"""

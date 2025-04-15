@@ -3,5 +3,6 @@ from enum import Enum, auto
 
 class ResourceType(Enum):
     NONE = auto()
-    COWS = auto()
+    CATTLE = auto()
     STONE = auto()
+    SILVER = auto()

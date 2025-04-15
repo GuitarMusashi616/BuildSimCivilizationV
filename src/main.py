@@ -1,17 +1,14 @@
-# pyright: basic
+# pyright: strict
 
 from typing import List
-from queueable.Building import Building
 from core.City import City
 from core.Civ import Civ
 from enums.Nation import Nation
 from researchable.Policy import Policy
 from researchable.Tech import Tech
-from enums.Resource import Resource
-from enums.Improvement import Improvement
-from tile.Tile import Tile
 from queueable.UnitFactory import UnitFactory
 from queueable.WonderFactory import WonderFactory
+from tile.ITile import ITile
 from tile.TileFactory import TileFactory
 
 def main():
@@ -19,7 +16,7 @@ def main():
     # then start above it going clockwise (start on upper right if two tiles above first tile)
     civ = Civ(Nation.ARABIA)
 
-    base = [
+    base: List[ITile] = [
         TileFactory.grassland_river_city(),
         TileFactory.grassland_hill(),
         TileFactory.forest_grassland(),

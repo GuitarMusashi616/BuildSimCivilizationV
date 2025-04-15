@@ -8,6 +8,7 @@ from enums.Nation import Nation
 from queueable.IQueue import IQueue
 from researchable.PolicyFactory import PolicyFactory
 from researchable.TechFactory import TechFactory
+from tile.ITile import ITile
 from tile.TileFactory import TileFactory
 from queueable.UnitFactory import UnitFactory
 from queueable.WonderFactory import WonderFactory
@@ -17,7 +18,7 @@ def babylon_race_fixture() -> Civ:
     build_order_tech = [TechFactory.pottery(), TechFactory.writing()]
     build_order_policy = [PolicyFactory.oligarchy()]
 
-    base = [
+    base: List[ITile] = [
         TileFactory.grassland_river_city(),
         TileFactory.grassland_hill(),
         TileFactory.forest_grassland(),
@@ -49,7 +50,7 @@ def babylon_race_fixture() -> Civ:
 
 
 def test():
-    base = [
+    base: List[ITile] = [
         TileFactory.grassland_river_city(),
         TileFactory.grassland_hill(),
         TileFactory.forest_grassland(),
