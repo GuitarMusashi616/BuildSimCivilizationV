@@ -15,3 +15,8 @@ class Coord:
     def __sub__(self, other: Coord):
         return Coord(self.x - other.x, self.y - other.y)
     
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, Coord):
+            return self.x == other.x and self.y == other.y
+        return False
+    

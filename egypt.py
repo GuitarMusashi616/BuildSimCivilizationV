@@ -8,6 +8,7 @@ from queueable.UnitFactory import UnitFactory
 from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
 from tile.Tile import Tile
+from unit.MoveAction import MoveAction
 
 def egypt_turn_0():
     civ = Civ(Nation.EGYPT)
@@ -62,7 +63,7 @@ def test_settler_coord():
         civ.stats()
         if len(civ.units) > 0:
             settler = civ.units[0]
-            settler.set_destination(Coord(5, 3))
+            settler.queue(MoveAction(Coord(3, 5)))
     
     
 

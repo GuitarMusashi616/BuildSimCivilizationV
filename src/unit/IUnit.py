@@ -3,6 +3,7 @@
 from abc import ABC, abstractmethod
 
 from core.Coord import Coord
+from unit.IUnitAction import IUnitAction
 
 class IUnit(ABC):
     @property
@@ -12,8 +13,8 @@ class IUnit(ABC):
     
     @abstractmethod
     def next_turn(self):
-        """Executes the next queued action"""
-
+        """Executes a step of the current/next queued action"""
+    
     @abstractmethod
-    def set_destination(self, coord: Coord):
-        """Unit starts moving towards coord every turn until it arrives"""
+    def queue(self, action: IUnitAction):
+        """Queues up an action"""

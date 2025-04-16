@@ -1,8 +1,13 @@
-from enum import Enum, auto
+# pyright: strict
 
-class UnitAction(Enum):
-    WAIT = auto()
-    SETTLE = auto()
-    BUILD_FARM = auto()
-    BUILD_MINE = auto()
-    MOVE = auto()
+from core.Coord import Coord
+from unit.UnitActionType import UnitActionType
+
+
+class UnitAction:
+    def __init__(self, action_type: UnitActionType, destination: Coord):
+        self.action_type = action_type
+        self.destination = destination
+    
+    def execute(self):
+        pass
