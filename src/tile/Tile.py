@@ -44,5 +44,13 @@ class Tile(ITile):
         if self.has_city:
             output = output.set_minimum(TileOutput.minimum_if_tile_has_city())
         return output
+    
+    def __repr__(self):
+        out =  f"{self.terrain} @ {self.coord}"
+        if self.resource != ResourceType.NONE:
+            out += f"with {self.resource}"
+        if self.improvement != ImprovementType.NONE:
+            out += f"and {self.improvement}"
+        return out
 
     

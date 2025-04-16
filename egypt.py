@@ -1,4 +1,5 @@
 from core.Coord import Coord
+from map.Map import Map
 from queueable.BuildingFactory import BuildingFactory
 from src.core.Civ import Civ, Nation
 from queueable.WonderFactory import WonderFactory
@@ -65,7 +66,15 @@ def test_settler_coord():
             settler = civ.units[0]
             settler.queue(MoveAction(Coord(3, 5)))
     
-    
+def test_grass_only_map():
+    base = Map.grassmap()
+    civ = Civ(Nation.EGYPT)
+    capital = civ.create_city(base)
+
+
+
+
+
 
 if __name__ == "__main__":
     # civ = egypt_base_fixture()
