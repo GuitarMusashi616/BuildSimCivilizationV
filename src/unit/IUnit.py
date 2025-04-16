@@ -8,6 +8,11 @@ from unit.IUnitAction import IUnitAction
 class IUnit(ABC):
     @property
     @abstractmethod
+    def id(self) -> int:
+        """Returns this entities id"""
+
+    @property
+    @abstractmethod
     def coord(self) -> Coord:
         """Returns the unit's current coordinate location"""
     

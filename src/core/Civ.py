@@ -25,6 +25,7 @@ class Civ(ICiv):
 
         self.cities: Dict[int, City] = {}
         self.units: Dict[int, IUnit] = {}
+        self.units_to_remove: List[int] = []
 
         self.gold_acc = 0
         self.science_acc = 0
@@ -49,7 +50,7 @@ class Civ(ICiv):
         self.social_policies_queue.extend(policy)
     
     def _add_city(self, city: City):
-        self.cities[len(self.cities)] = city
+        self.cities[city.id] = city
     
     def create_city(self, tiles: List[ITile], num_starting_tiles: int=7):
         is_capital = len(self.cities) < 1
@@ -62,12 +63,21 @@ class Civ(ICiv):
         return self.cities[city_id]
 
     def add_unit(self, unit: IUnit):
-        self.units[len(self.units)] = unit
+        self.units[unit.id] = unit
     
     def remove_unit(self, unitId: int):
+        """Just queue the removal of a unit"""
+        self.units_to_remove.append(unitId)
+    
+    def _remove_unit(self, unitId: int):
         # assert 0 <= unitId < len(self.units), f"Cannot remove unitId: {unitId}"
         assert self.units[unitId], f"Unit with unitId: {unitId} cannot be deleted"
         del self.units[unitId]
+    
+    def cleanup_units(self):
+        while self.units_to_remove:
+            unitId = self.units_to_remove.pop()
+            self._remove_unit(unitId)
 
     def get_gold(self):
         return sum(x.get_gold() for x in self.cities.values())
@@ -159,6 +169,8 @@ class Civ(ICiv):
         # 1)
         for unit in self.units.values():
             unit.next_turn()
+        
+        self.cleanup_units()
 
         # 2)
         for city in self.cities.values():

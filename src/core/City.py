@@ -16,9 +16,12 @@ from tile_strat.IPickTileStrat import IPickTileStrat
 
 class City:
     """Represents a city, make sure to also pick the tile the city is on!"""
+    num_cities = 0
 
     def __init__(self, tiles: List[ITile], civ: ICiv, num_starting_tiles: int=7, is_capital: bool=False):
         """first tile is the city then start above it going clockwise (start on upper right if two tiles above first tile)"""
+        self.id = City.num_cities
+        City.num_cities += 1
 
         self.pop: int = 1
         self.food_acc: int = 0

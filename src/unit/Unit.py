@@ -7,7 +7,12 @@ from unit.UnitType import UnitType
 from unit.IUnit import IUnit
 
 class Unit(IUnit):
+    num_units = 0
+    
     def __init__(self, unit_type: UnitType, coord: Coord):
+        self._id = Unit.num_units
+        Unit.num_units += 1
+
         self.unit_type = unit_type
         self._coord = coord
         self.action_queue: List[IUnitAction] = []
@@ -15,6 +20,10 @@ class Unit(IUnit):
     @property
     def coord(self) -> Coord:
         return self._coord
+
+    @property
+    def id(self) -> int:
+        return self._id
     
     def next_turn(self):
         if not self.action_queue:

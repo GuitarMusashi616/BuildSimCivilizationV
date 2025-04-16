@@ -10,6 +10,7 @@ from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
 from tile.Tile import Tile
 from unit.MoveAction import MoveAction
+from unit.SettleAction import SettleAction
 
 def egypt_turn_0():
     civ = Civ(Nation.EGYPT)
@@ -67,21 +68,24 @@ def test_settler_coord():
             settler.queue(MoveAction(Coord(3, 5)))
     
 def test_grass_only_map():
-    base = Map.grassmap()
+    grassmap = Map.grassmap(-10, 10, 10, -10)
+    base = grassmap.get_city_tiles(Coord(0, 0))
+
     civ = Civ(Nation.EGYPT)
     capital = civ.create_city(base)
+    capital.queue_up(UnitFactory.settler())
 
-
-
-
+    print("Turn 1")
+    civ.stats()
+    for i in range(40):
+        print(f"Turn {i+2}")
+        civ.next_turn()
+        civ.stats()
+        if len(civ.units) > 0:
+            settler = civ.units[0]
+            settler.queue(SettleAction(civ, settler, grassmap.get_city_tiles(Coord(5, 0))))
 
 
 if __name__ == "__main__":
-    # civ = egypt_base_fixture()
-    # civ.stats()
-    # for i in range(10):
-    #     print(f"Turn {i+2}")
-    #     civ.next_turn()
-    #     civ.stats()
-    # print()
-    test_settler_coord()
+    # test_settler_coord()
+    test_grass_only_map()
