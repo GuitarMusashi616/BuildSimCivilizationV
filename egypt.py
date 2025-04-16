@@ -60,6 +60,10 @@ def test_settler_coord():
         print(f"Turn {i+2}")
         civ.next_turn()
         civ.stats()
+        if len(civ.units) > 0:
+            settler = civ.units[0]
+            settler.set_destination(Coord(5, 3))
+    
     
 
 if __name__ == "__main__":

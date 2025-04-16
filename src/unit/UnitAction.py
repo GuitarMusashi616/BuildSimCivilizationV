@@ -5,3 +5,4 @@ class UnitAction(Enum):
     SETTLE = auto()
     BUILD_FARM = auto()
     BUILD_MINE = auto()
+    MOVE = auto()
