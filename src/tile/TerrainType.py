@@ -6,6 +6,15 @@ from enum import Enum, auto
 from tile.TileOutput import TileOutput
 
 class TerrainType(Enum):
+    TERRAIN_GRASS = auto()
+    TERRAIN_PLAINS = auto()
+    TERRAIN_DESERT = auto()
+    TERRAIN_TUNDRA = auto()
+    TERRAIN_SNOW = auto()
+    TERRAIN_COAST = auto()
+    TERRAIN_OCEAN = auto()
+    TERRAIN_MOUNTAIN = auto()
+    TERRAIN_HILL = auto()
 
     GRASSLAND = auto()
     GRASSLAND_RIVER = auto()

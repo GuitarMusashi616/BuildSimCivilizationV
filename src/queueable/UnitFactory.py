@@ -9,6 +9,7 @@ class UnitFactory:
     @staticmethod
     def settler() -> UnitInProgress:
         return UnitInProgress(UnitType.SETTLER, 56)
+        # 106 
     
     @staticmethod
     def worker() -> UnitInProgress:
@@ -18,6 +19,11 @@ class UnitFactory:
     def warrior() -> UnitInProgress:
         return UnitInProgress(UnitType.WARRIOR, 26)
 
+    @staticmethod
+    def scout() -> UnitInProgress:
+        # 25 according to wiki
+        return UnitInProgress(UnitType.SCOUT, 13)
+    
     def spawn(self, unit_type: UnitType) -> UnitInProgress:
         if unit_type is UnitType.SETTLER:
             return self.settler()

@@ -4,19 +4,18 @@ from typing import List
 from core.Civ import Civ
 from core.Coord import Coord
 from enums.Nation import Nation
-from researchable.Policy import Policy
+from queueable.BuildingFactory import BuildingFactory
+from queueable.IQueue import IQueue
+from queueable.UnitFactoryStandard import UnitFactoryStandard
 from researchable.Tech import Tech
+from researchable.Policy import Policy
 from queueable.UnitFactory import UnitFactory
 from tile.ITile import ITile
 from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
 from tile.Tile import Tile
 
-def main():
-    # first tile is the city
-    # then start above it going clockwise (start on upper right if two tiles above first tile)
-    civ = Civ(Nation.ARABIA)
-
+def get_base() -> List[ITile]:
     base: List[ITile] = [
         Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER),
         Tile(Coord(1, 0), TerrainType.GRASSLAND_HILL),
@@ -34,12 +33,20 @@ def main():
         Tile(Coord(1, 2), TerrainType.PLAINS_RIVER),
         Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER, ResourceType.STONE),
     ]
+    return base
 
-    capital = civ.create_city(base)
+
+
+def main():
+    # first tile is the city
+    # then start above it going clockwise (start on upper right if two tiles above first tile)
+    civ = Civ(Nation.ARABIA)
+
+    capital = civ.create_city(get_base())
     capital.queue_up(UnitFactory.worker())
 
     civ.queue_research(Tech('Pottery', 25))
-    civ.queue_policy(Policy('Oligarchy'))
+    civ.queue_policy(Policy('Oligarchy')) # type: ignore
     civ.stats()
 
     for i in range(2, 20):
@@ -49,6 +56,56 @@ def main():
         civ.stats()
 
 
+def test_arabia_camel_archer_rush():
+    build_order_tech = [
+        Tech('Pottery', 35),
+        Tech('Animal Husbandry', 35),
+        Tech('Mining', 35),
+        Tech('Calendar', 55),  # specific luxury resource tech for grapes
+        Tech('Writing', 55),
+        Tech('Archery', 35),
+        Tech('Wheel', 55),
+        Tech('Mathematics', 105),
+        Tech('Drama & Poetry', 175),
+        Tech('Trapping', 55),
+        Tech('Horseback Riding', 105),
+        Tech('Currency', 175),
+        Tech('Civil Service', 275),
+        Tech('Chivalry', 485),
+    ]
+
+    build_order_policy = [
+        Policy('Republic'),
+        Policy('Collective Rule'),
+        Policy('Citizenship'),
+        Policy('Representation'),
+        Policy('Meritocracy')
+    ]
+
+    build_order_capital: List[IQueue] = [
+        UnitFactoryStandard.scout(),
+        UnitFactoryStandard.scout(),
+        BuildingFactory.granary(),
+        UnitFactoryStandard.scout(),
+        UnitFactoryStandard.settler(),
+        UnitFactoryStandard.settler(),
+    ]
+
+    build_order_expansions: List[IQueue] = [ # type: ignore
+        BuildingFactory.granary(),
+        BuildingFactory.library(),
+        UnitFactoryStandard.chariot(),
+    ]
+
+
+    civ = Civ(Nation.BABYLON)  # found city turn 1
+
+    capital = civ.create_city(get_base())
+    capital.queue_up_many(build_order_capital)
+
+    civ.queue_many_research(build_order_tech)
+    civ.queue_many_policy(build_order_policy)
+    return civ
 
 
 

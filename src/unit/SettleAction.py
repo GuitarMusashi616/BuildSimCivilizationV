@@ -4,12 +4,12 @@ from typing import List
 from core.Civ import Civ
 from core.Coord import Coord
 from tile.ITile import ITile
+from unit.IUnit import IUnit
 from unit.IUnitAction import IUnitAction
-from unit.Unit import Unit
 
 
 class SettleAction(IUnitAction):
-    def __init__(self, civ: Civ, unit: Unit, base: List[ITile]):
+    def __init__(self, civ: Civ, unit: IUnit, base: List[ITile]):
         self.civ = civ
         self.unit = unit
         self.base = base

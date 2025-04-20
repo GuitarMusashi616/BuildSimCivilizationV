@@ -4,11 +4,10 @@ from core.Coord import Coord
 from tile.ITile import ITile
 from tile.ImprovementType import ImprovementType
 from tile.ResourceType import ResourceType
-from tile.TerrainType import TerrainType
 from tile.TileOutput import TileOutput
 
-class Tile(ITile):
-    def __init__(self, coord: Coord, terrain: TerrainType, resource: ResourceType = ResourceType.NONE, improvement: ImprovementType = ImprovementType.NONE, is_worked: bool = False, has_city: bool = False):
+class TileString(ITile):
+    def __init__(self, coord: Coord, terrain: str, resource: str, improvement: str, is_worked: bool = False, has_city: bool = False):
         self.terrain = terrain
         self.resource = resource
         self.improvement = improvement
@@ -39,11 +38,13 @@ class Tile(ITile):
     
     @property
     def output(self) -> TileOutput:
-        output = TerrainType.base_stats(self.terrain)
-        output += ResourceType.add_stats(self.resource)
-        if self.has_city:
-            output = output.set_minimum(TileOutput.minimum_if_tile_has_city())
-        return output
+        # output = TerrainType.base_stats(self.terrain)
+        # output += ResourceType.add_stats(self.resource)
+        # if self.has_city:
+        #     output = output.set_minimum(TileOutput.minimum_if_tile_has_city())
+        # return output
+
+        return TileOutput(0, 0, 0, 0, 0, 0)
     
     def __repr__(self):
         out =  f"{self.terrain} @ {self.coord}"

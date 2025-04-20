@@ -1,11 +1,13 @@
+# pyright: strict
+
+from typing import List
 from core.Coord import Coord
 from map.Map import Map
+from map.MapFromSave import MapFromSave
 from queueable.BuildingFactory import BuildingFactory
 from src.core.Civ import Civ, Nation
-from queueable.WonderFactory import WonderFactory
-from test import babylon_race_fixture
-from core.City import City
 from queueable.UnitFactory import UnitFactory
+from tile.ITile import ITile
 from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
 from tile.Tile import Tile
@@ -14,13 +16,13 @@ from unit.SettleAction import SettleAction
 
 def egypt_turn_0():
     civ = Civ(Nation.EGYPT)
-    civ.add_unit(UnitFactory.settler())
-    civ.add_unit(UnitFactory.warrior())
+    civ.add_unit(UnitFactory.settler().to_unit(Coord(0, 0)))
+    civ.add_unit(UnitFactory.warrior().to_unit(Coord(0, 1)))
     return civ
 
 
 def egypt_base_fixture():
-    base = [
+    base: List[ITile] = [
         Tile(Coord(1, 1), TerrainType.GRASSLAND_HILL_RIVER),
         Tile(Coord(1, 0), TerrainType.GRASSLAND_RIVER, ResourceType.CATTLE),
         Tile(Coord(2, 0), TerrainType.GRASSLAND_HILL_RIVER, ResourceType.SILVER),
@@ -34,7 +36,7 @@ def egypt_base_fixture():
 
     civ = Civ(Nation.EGYPT)
 
-    capital = civ.create_city(base)
+    civ.create_city(base)
     # capital.queue_up(UnitFactory.settler())
     # capital.queue_up(BuildingFactory.granary())
 
@@ -86,6 +88,12 @@ def test_grass_only_map():
             settler.queue(SettleAction(civ, settler, grassmap.get_city_tiles(Coord(5, 0))))
 
 
+def test_map_from_save():
+    mapsave = MapFromSave('resources/output.json')
+    print(mapsave.get_tile(Coord(15, 15)))
+
+
 if __name__ == "__main__":
     # test_settler_coord()
-    test_grass_only_map()
+    # test_grass_only_map()
+    test_map_from_save()
