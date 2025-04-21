@@ -48,35 +48,35 @@ def babylon_race_fixture() -> Civ:
     return civ
 
 
-def test():
-    base: List[ITile] = [
-        Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER),
-        Tile(Coord(1, 0), TerrainType.GRASSLAND_HILL),
-        Tile(Coord(2, 0), TerrainType.FOREST_GRASSLAND),
-        Tile(Coord(2, 1), TerrainType.GRASSLAND_RIVER),
-        Tile(Coord(1, 2), TerrainType.GRASSLAND_RIVER),
-        Tile(Coord(0, 1), TerrainType.PLAINS_RIVER),
-        Tile(Coord(0, 0), TerrainType.GRASSLAND_RIVER, ResourceType.STONE),
-    ]
+# def test():
+#     base: List[ITile] = [
+#         Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER),
+#         Tile(Coord(1, 0), TerrainType.GRASSLAND_HILL),
+#         Tile(Coord(2, 0), TerrainType.FOREST_GRASSLAND),
+#         Tile(Coord(2, 1), TerrainType.GRASSLAND_RIVER),
+#         Tile(Coord(1, 2), TerrainType.GRASSLAND_RIVER),
+#         Tile(Coord(0, 1), TerrainType.PLAINS_RIVER),
+#         Tile(Coord(0, 0), TerrainType.GRASSLAND_RIVER, ResourceType.STONE),
+#     ]
 
-    civ1 = Civ(Nation.BABYLON)
-    civ2 = Civ(Nation.ARABIA)
-    city1 = civ1.create_city([])
-    city1.pop = 5
-    city2 = civ2.create_city([])
-    city2.pop = 7
-    civ2.create_city(base)
-
-
-    print([x.pop for x in civ1.cities.values()])
-    print([x.pop for x in civ2.cities.values()])
+#     civ1 = Civ(Nation.BABYLON)
+#     civ2 = Civ(Nation.ARABIA)
+#     city1 = civ1.create_city([])
+#     city1.pop = 5
+#     city2 = civ2.create_city([])
+#     city2.pop = 7
+#     civ2.create_city(base)
 
 
-    a = Tile(Coord(0, 0), TerrainType.GRASSLAND_HILL),
-    b = Tile(Coord(1, 0), TerrainType.GRASSLAND_HILL),
+#     print([x.pop for x in civ1.cities.values()])
+#     print([x.pop for x in civ2.cities.values()])
 
-    print(a.__dict__)
-    print(b.__dict__)
+
+#     a = Tile(Coord(0, 0), TerrainType.GRASSLAND_HILL),
+#     b = Tile(Coord(1, 0), TerrainType.GRASSLAND_HILL),
+
+#     print(a.__dict__)
+#     print(b.__dict__)
 
 
 def babylon_race():

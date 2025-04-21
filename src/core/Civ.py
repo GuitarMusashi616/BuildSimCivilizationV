@@ -5,6 +5,7 @@ import math
 from typing import Dict, List
 from adapter.IUnitMadeListener import IUnitMadeListener
 from core.City import City
+from core.ICity import ICity
 from core.ICiv import ICiv
 from tile.ITile import ITile
 from util.Formula import Formula
@@ -24,7 +25,7 @@ class Civ(ICiv):
         self.social_policies_queue: List[Policy] = []
         self.social_policies: List[Policy] = []
 
-        self.cities: Dict[int, City] = {}
+        self.cities: Dict[int, ICity] = {}
         self.units: Dict[int, IUnit] = {}
         self.units_to_remove: List[int] = []
 
@@ -52,10 +53,10 @@ class Civ(ICiv):
     def queue_many_policy(self, policy: List[Policy]):
         self.social_policies_queue.extend(policy)
     
-    def _add_city(self, city: City):
+    def _add_city(self, city: ICity):
         self.cities[city.id] = city
     
-    def create_city(self, tiles: List[ITile], num_starting_tiles: int=7):
+    def create_city(self, tiles: List[ITile], num_starting_tiles: int=7) -> ICity:
         is_capital = len(self.cities) < 1
         city = City(tiles, self, num_starting_tiles, is_capital)
         self._add_city(city)

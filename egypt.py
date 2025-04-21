@@ -1,6 +1,7 @@
 # pyright: strict
 
 from typing import List
+from core.City import City
 from core.Coord import Coord
 from map.IMap import IMap
 from map.Map import Map
@@ -55,7 +56,7 @@ def test_lock_hammers_for_extra_hammers_trick():
         civ.next_turn()
         civ.stats()
     city = civ.cities[0]
-    assert city.hammers_acc == 22, f"should be 22/60 towards the granary, instead its {city.hammers_acc}/{city.total_hammers_req()}"
+    assert isinstance(city, City) and city.hammers_acc == 22, f"should be 22/60 towards the granary, instead its {city.hammers_acc}/{city.total_hammers_req()}" # type: ignore
 
 def test_settler_coord():
     """Test the new coords for tiles and units"""

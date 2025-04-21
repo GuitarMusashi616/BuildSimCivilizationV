@@ -3,6 +3,7 @@
 from __future__ import annotations
 import math
 from typing import List
+from core.ICity import ICity
 from core.ICiv import ICiv
 from queueable.IQueue import IQueue
 from queueable.UnitInProgress import UnitInProgress
@@ -14,13 +15,13 @@ from util.Formula import Formula
 from tile_strat.DefaultTileStrat import DefaultTileStrat
 from tile_strat.IPickTileStrat import IPickTileStrat
 
-class City:
+class City(ICity):
     """Represents a city, make sure to also pick the tile the city is on!"""
     num_cities = 0
 
     def __init__(self, tiles: List[ITile], civ: ICiv, num_starting_tiles: int=7, is_capital: bool=False):
         """first tile is the city then start above it going clockwise (start on upper right if two tiles above first tile)"""
-        self.id = City.num_cities
+        self._id = City.num_cities
         City.num_cities += 1
 
         self.pop: int = 1
@@ -37,6 +38,10 @@ class City:
         self.buildings: List[Building] = []
         self.queue: List[IQueue] = []
         self.startup(is_capital)
+    
+    @property
+    def id(self) -> int:
+        return self._id
 
     def startup(self, is_capital: bool=False):
         """Does the initial city setup"""
@@ -91,6 +96,9 @@ class City:
 
         for building in self.buildings:
             prod += building.prod
+        
+        if self._is_training_settler():
+            prod += self._excess_food_to_production()
 
         return prod
 
@@ -201,17 +209,16 @@ class City:
             return math.ceil((self.queue[0].hammers_req - self.hammers_acc) / self.get_prod())
         except ZeroDivisionError:
             return -1
-
-    def next_turn(self):
-        # culture
+    
+    def _simulate_culture(self):
         self.culture_acc += self.get_culture()
 
         culture_req = self.get_border_growth_culture_req()
         if self.culture_acc >= culture_req and self.future_tiles:
             self.culture_acc -= culture_req
             self.tiles.append(self.future_tiles.pop(0))
-
-        # growth
+    
+    def _simulate_food(self):
         self.food_acc += self.get_food()
 
         food_req = Formula.food_required_to_grow(self.pop)
@@ -219,9 +226,8 @@ class City:
             self.food_acc -= food_req
             self.pop += 1
             self.pick_tiles_with_strat()
-
-
-        # production complete
+    
+    def _simulate_production(self):
         self.hammers_acc += self.get_prod()
 
         if self.has_queued() and self.hammers_acc >= self.total_hammers_req():
@@ -235,13 +241,47 @@ class City:
             
             if isinstance(queueable, UnitInProgress):
                 self.civ.add_unit(queueable.to_unit(self.tiles[0].coord))
-        
-        
 
 
+    def next_turn(self):
+        # culture
+        self._simulate_culture()
+
+        # growth
+        if not self._is_training_settler():
+            self._simulate_food()
+
+        # production complete
+        self._simulate_production()
+
+        
     def has_queued(self):
         """Returns whether this city has anything queued up in production"""
         return len(self.queue) > 0
+    
+    def _excess_food_to_production(self) -> int:
+        """Returns the extra production from excess food for when a settler is being trained"""
+        surplus_food = self.get_food()
+        production = 0
+
+        if surplus_food <= 0:
+            return 0
+
+        if surplus_food >= 1:
+            production += 1        
+        if surplus_food >= 2:
+            production += 1        
+        if surplus_food >= 4:
+            production += 1        
+
+        if surplus_food >= 8:
+            production += 1 + (surplus_food - 8) // 4
+
+        return production
+    
+    def _is_training_settler(self) -> bool:
+        """Returns whether this city is currently training a settler"""
+        return bool(self.queue) and self.queue[0].name == "SETTLER"
 
     def total_hammers_req(self):
         """Returns the total production hammers required to complete current item, errors if nothing queued"""

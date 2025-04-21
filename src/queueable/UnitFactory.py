@@ -5,6 +5,10 @@ from unit.UnitType import UnitType
 
 
 class UnitFactory:
+    # Quick is 2/3 rounded down
+    # Normal is 1x
+    # Epic is 1.5x, etc
+
 
     @staticmethod
     def settler() -> UnitInProgress:
