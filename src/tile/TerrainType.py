@@ -41,6 +41,62 @@ class TerrainType(Enum):
     COAST = auto()
 
     @staticmethod
+    def base_stats_feature(terrain: TerrainType) -> TileOutput:
+        """Return the base stats of food, prod, etc for the terrain eg. grassland hill has 2 hammers"""
+        if terrain == TerrainType.GRASSLAND or terrain == TerrainType.GRASSLAND_RIVER or terrain == TerrainType.PLAINS or terrain == TerrainType.PLAINS_RIVER:
+            return TileOutput(
+                food = 2,
+                prod = 0,
+                gold = 0,
+                culture = 0,
+                science = 0,
+                faith = 0,
+            )
+        
+        if terrain == TerrainType.GRASSLAND_HILL or terrain == TerrainType.GRASSLAND_HILL_RIVER:
+            return TileOutput(
+                food = 0,
+                prod = 2,
+                gold = 0,
+                culture = 0,
+                science = 0,
+                faith = 0,
+            )
+
+        if terrain == TerrainType.TERRAIN_COAST:
+            return TileOutput(
+                food = 1,
+                prod = 0,
+                gold = 0,
+                culture = 0,
+                science = 0,
+                faith = 0,
+            )
+
+        if terrain == TerrainType.TERRAIN_OCEAN:
+            return TileOutput(
+                food = 1,
+                prod = 0,
+                gold = 0,
+                culture = 0,
+                science = 0,
+                faith = 0,
+            )
+        
+        if terrain == TerrainType.FOREST_GRASSLAND:
+            return TileOutput(
+                food = 1,
+                prod = 1,
+                gold = 0,
+                culture = 0,
+                science = 0,
+                faith = 0,
+            )
+
+        assert False, f"Terrain {terrain} has no base stats available"
+
+
+    @staticmethod
     def base_stats(terrain: TerrainType) -> TileOutput:
         """Return the base stats of food, prod, etc for the terrain eg. grassland hill has 2 hammers"""
         if terrain == TerrainType.GRASSLAND or terrain == TerrainType.GRASSLAND_RIVER or terrain == TerrainType.PLAINS or terrain == TerrainType.PLAINS_RIVER:

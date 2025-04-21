@@ -27,3 +27,4 @@ class FeatureType(Enum):
     FEATURE_LAKE_VICTORIA = auto()
     FEATURE_KILIMANJARO = auto()
     FEATURE_SOLOMONS_MINE = auto()
+    NONE = auto()

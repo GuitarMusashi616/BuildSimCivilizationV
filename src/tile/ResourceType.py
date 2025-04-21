@@ -48,7 +48,7 @@ class ResourceType(Enum):
     RESOURCE_PEPPER = auto()
     RESOURCE_HIDDEN_ARTIFACTS = auto()
     RESOURCE_BISON = auto()
-    RESOURCE_COCO = auto()
+    RESOURCE_COCOA = auto()
 
     NONE = auto()
     CATTLE = auto()

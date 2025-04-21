@@ -4,14 +4,13 @@ from typing import List
 from core.Civ import Civ
 from core.Coord import Coord
 from tile.ITile import ITile
-from unit.IUnit import IUnit
 from unit.IUnitAction import IUnitAction
 
 
 class SettleAction(IUnitAction):
-    def __init__(self, civ: Civ, unit: IUnit, base: List[ITile]):
+    def __init__(self, civ: Civ, unitId: int, base: List[ITile]):
         self.civ = civ
-        self.unit = unit
+        self.unitId = unitId
         self.base = base
         self._destination = base[0].coord
     
@@ -21,5 +20,5 @@ class SettleAction(IUnitAction):
 
     def execute(self):
         self.civ.create_city(self.base)
-        self.civ.remove_unit(self.unit.id)
+        self.civ.remove_unit(self.unitId)
         # self.civ.map.get_tiles?

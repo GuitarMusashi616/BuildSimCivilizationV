@@ -3,6 +3,7 @@
 from __future__ import annotations
 import math
 from typing import Dict, List
+from adapter.IUnitMadeListener import IUnitMadeListener
 from core.City import City
 from core.ICiv import ICiv
 from tile.ITile import ITile
@@ -32,6 +33,8 @@ class Civ(ICiv):
         self.culture_acc = 0
         self.faith_acc = 0
         self.happiness_acc = 0
+        
+        self.unit_made_listeners: List[IUnitMadeListener] = []
 
     @property
     def num_cities(self):
@@ -64,6 +67,8 @@ class Civ(ICiv):
 
     def add_unit(self, unit: IUnit):
         self.units[unit.id] = unit
+        for listener in self.unit_made_listeners:
+            listener.notify(unit)
     
     def remove_unit(self, unitId: int):
         """Just queue the removal of a unit"""
@@ -191,4 +196,8 @@ class Civ(ICiv):
         if self.social_policies_queue and self.culture_acc >= culture_req:
             self.culture_acc -= culture_req
             self.social_policies.append(self.social_policies_queue.pop(0))
+    
+
+    def add_unit_made_listener(self, listener: IUnitMadeListener):
+        self.unit_made_listeners.append(listener)
 

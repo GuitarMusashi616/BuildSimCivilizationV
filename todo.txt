@@ -5,3 +5,8 @@ switch production
 
 how much firepower
 how much city defense
+
+
+babylon early archer rush
+
+rush nearest neighbor with archers and overwhelm

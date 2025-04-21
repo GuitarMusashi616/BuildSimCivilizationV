@@ -2,8 +2,10 @@
 
 from typing import List
 from core.Coord import Coord
+from map.IMap import IMap
 from map.Map import Map
 from map.MapFromSave import MapFromSave
+from map.MapHelper import MapHelper
 from queueable.BuildingFactory import BuildingFactory
 from src.core.Civ import Civ, Nation
 from queueable.UnitFactory import UnitFactory
@@ -85,15 +87,42 @@ def test_grass_only_map():
         civ.stats()
         if len(civ.units) > 0:
             settler = civ.units[0]
-            settler.queue(SettleAction(civ, settler, grassmap.get_city_tiles(Coord(5, 0))))
+            settler.queue(SettleAction(civ, settler.id, grassmap.get_city_tiles(Coord(5, 0))))
 
 
 def test_map_from_save():
-    mapsave = MapFromSave('resources/output.json')
-    print(mapsave.get_tile(Coord(15, 15)))
+    # mapsave = MapFromSave('resources/output.json')
+    mapsave = MapFromSave('resources/arabia_camel_rush.json')
+    width = mapsave.json['MapData']['MapHeader']['Width']
+    height = mapsave.json['MapData']['MapHeader']['Height']
+    print(width, height)
+    for w in range(width):
+        for h in range(height):
+            print(mapsave.get_tile(Coord(w, h)))
+
+def test_settling_map_from_save():
+    mapsave: IMap = MapFromSave('resources/output.json')
+    base = MapHelper.get_city_tiles(mapsave, Coord(20, 20))
+
+    civ = Civ(Nation.EGYPT)
+    capital = civ.create_city(base)
+    capital.queue_up(UnitFactory.settler())
+
+    print("Turn 1")
+    civ.stats()
+    for i in range(40):
+        print(f"Turn {i+2}")
+        civ.next_turn()
+        civ.stats()
+        if len(civ.units) > 0:
+            settler = civ.units[0]
+            settler.queue(SettleAction(civ, settler.id, MapHelper.get_city_tiles(mapsave, Coord(25, 23))))
+
+
 
 
 if __name__ == "__main__":
     # test_settler_coord()
     # test_grass_only_map()
-    test_map_from_save()
+    # test_map_from_save()
+    test_settling_map_from_save()

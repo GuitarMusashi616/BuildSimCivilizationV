@@ -6,6 +6,7 @@ from __future__ import annotations
 from typing import Dict, List, Tuple
 from core.Coord import Coord
 from map.IMap import IMap
+from map.MapHelper import MapHelper
 from tile.ITile import ITile
 from tile.TerrainType import TerrainType
 from tile.Tile import Tile
@@ -13,47 +14,6 @@ from tile.Tile import Tile
 
 class Map(IMap):
     """A formula to take a bunch of hexes and attach coordinates to it"""
-    city_tiles_offset = [
-        (0, 0),
-        (0, 1),
-        (1, 0),
-        (1, -1),
-        (0, -1),
-        (-1, 0),
-        (-1, 1),
-
-        (-1, 2),
-        (0, 2),
-        (1, 1),
-        (2, 0),
-        (2, -1),
-        (2, -2),
-        (1, -2),
-        (0, -2),
-        (-1, -1),
-        (-2, 0),
-        (-2, 1),
-        (-2, 2),
-
-        (-1, 3),
-        (0, 3),
-        (1, 2),
-        (2, 1),
-        (3, 0),
-        (3, -1),
-        (3, -2),
-        (3, -3),
-        (2, -3),
-        (1, -3),
-        (0, -3),
-        (-1, -2),
-        (-2, -1),
-        (-3, 0),
-        (-3, 1),
-        (-3, 2),
-        (-3, 3),
-        (-2, 3),
-    ]
 
     def __init__(self, coord_to_tile: Dict[Tuple[int, int], ITile]):
         self.coord_to_tile = coord_to_tile
@@ -66,11 +26,7 @@ class Map(IMap):
     
     def get_city_tiles(self, center: Coord) -> List[ITile]:
         """Returns the clockwise order of tiles from the map starting from the middle"""
-        output: List[ITile] = []
-        for xoff,yoff in self.city_tiles_offset:
-            coord = center + Coord(xoff, yoff)
-            output.append(self.get_tile(coord))
-        return output
+        return MapHelper.get_city_tiles(self, center)
     
     @staticmethod
     def coord_gen(col_low: int, col_high: int, row_high: int, row_low: int) -> List[Coord]:

@@ -11,6 +11,6 @@ class TestCities(unittest.TestCase):
     # Check if the civ is progressing science research
     def test_science_research(self):
         pass
-
+    
 if __name__ == "__main__":
     unittest.main()

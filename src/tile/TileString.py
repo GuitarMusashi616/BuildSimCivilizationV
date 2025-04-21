@@ -38,12 +38,6 @@ class TileString(ITile):
     
     @property
     def output(self) -> TileOutput:
-        # output = TerrainType.base_stats(self.terrain)
-        # output += ResourceType.add_stats(self.resource)
-        # if self.has_city:
-        #     output = output.set_minimum(TileOutput.minimum_if_tile_has_city())
-        # return output
-
         return TileOutput(0, 0, 0, 0, 0, 0)
     
     def __repr__(self):

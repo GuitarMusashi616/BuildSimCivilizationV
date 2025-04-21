@@ -1,9 +1,11 @@
 # pyright: strict
 
 from typing import List
+from adapter.QueueUnitActions import QueueUnitActions
 from core.Civ import Civ
 from core.Coord import Coord
 from enums.Nation import Nation
+from map.MapHelper import MapHelper
 from queueable.BuildingFactory import BuildingFactory
 from queueable.IQueue import IQueue
 from queueable.UnitFactoryStandard import UnitFactoryStandard
@@ -14,6 +16,9 @@ from tile.ITile import ITile
 from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
 from tile.Tile import Tile
+from map.MapFromSave import MapFromSave
+from unit.IUnitAction import IUnitAction
+from unit.SettleAction import SettleAction
 
 def get_base() -> List[ITile]:
     base: List[ITile] = [
@@ -37,9 +42,11 @@ def get_base() -> List[ITile]:
 
 
 
+
 def main():
     # first tile is the city
     # then start above it going clockwise (start on upper right if two tiles above first tile)
+
     civ = Civ(Nation.ARABIA)
 
     capital = civ.create_city(get_base())
@@ -98,13 +105,31 @@ def test_arabia_camel_archer_rush():
     ]
 
 
+    map = MapFromSave('resources/arabia_camel_rush.json')
+
     civ = Civ(Nation.BABYLON)  # found city turn 1
 
-    capital = civ.create_city(get_base())
+    capital = civ.create_city(MapHelper.get_city_tiles(map, Coord(36, 20)))
     capital.queue_up_many(build_order_capital)
-
     civ.queue_many_research(build_order_tech)
     civ.queue_many_policy(build_order_policy)
+
+    # settler_count = 0
+    # settle_coords = [Coord(36, 28), Coord(28, 28), Coord(23, 23), Coord(20, 20), Coord(15, 15)]
+
+    first_actions: List[IUnitAction] = [SettleAction(civ, 3, MapHelper.get_city_tiles(map, Coord(36, 28)))]
+    civ.add_unit_made_listener(QueueUnitActions(3, first_actions))
+
+    second_actions: List[IUnitAction] = [SettleAction(civ, 4, MapHelper.get_city_tiles(map, Coord(28, 28)))]
+    civ.add_unit_made_listener(QueueUnitActions(4, second_actions))
+
+    print("Turn 1")
+    civ.stats()
+    for i in range(120):
+        print(f"Turn {i+2}")
+        civ.next_turn()
+        civ.stats()
+
     return civ
 
 
@@ -145,4 +170,5 @@ def main2():
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    test_arabia_camel_archer_rush()
