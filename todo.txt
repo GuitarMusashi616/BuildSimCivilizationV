@@ -10,3 +10,144 @@ how much city defense
 babylon early archer rush
 
 rush nearest neighbor with archers and overwhelm
+
+
+Generate all techs, policies, buildings, etc from DB file
+Get yields for all tiles using DB file
+- factor in buildings, techs, policies as well
+
+
+City prereqs for buildings, units
+- building prereq_tech
+- units prereq_tech
+
+strategy builder
+- pick path for techs
+- pick path for policies
+- pick path for units
+- pick path for buildings
+
+- check prereqs by the time you get there
+- see if theres any hold up / prereqs not met when unit wanted for example
+
+
+fastest way to get nukes rush
+- max out science, getting observatories and stuff
+- get the uranium
+- get the nuke tech
+- end when first nuke trained
+- do on quick mode
+- then test in game
+
+how to come up with variations of strategies?
+- same tech progression
+- same cities settled in same places
+- change build order around
+- have to check if you can make the building/tech/unit you want / have all the prereqs in place
+- get the final turn when its all made
+ - also report any hold ups
+
+
+ bowman rush
+ - https://www.reddit.com/r/civ5/comments/mg5iii/babylon_bowman_swordsman_rush_strategy_deity_127t/
+ - just rush 6 bowman and 3 warriors? (maybe 4 and 2?) (how many to take a city?)
+ - simulate variations to see how long it takes for how much army
+
+
+
+
+
+Database notes:
+
+
+BuildFeatures - prereqs for worker improve tiles
+BUILD_FARM FEATURE_JUNGLE TECH_BRONZE_WORKING
+
+
+Building_FeatureYieldChanges
+- eg tiles now give more hammers because building
+
+Building_FreeUnits
+- eg great scientist after porcelain tower
+
+Builing_LakePlotYieldChanges
+
+Building_LocalResourceOrs/Ands
+- prereq resources for city for building eg horses stable
+
+Builds
+- worker tile time and prereqs
+
+Terrain_Yields
+- eg. TERRAIN_GRASS YIELD_PRODUCTION 2
+
+Terrain_HillsYieldChanges
+- eg. -2 food, +2 prod
+
+Resource_YieldChanges
+- eg. +1 food (cows)
+
+Technologies
+- eg. TECH_POTTERY COST: 20
+
+Technology_PrereqTechs
+- eg. TECH_CURRENCY TECH_MATHEMATICS
+
+Routes
+- eg. speed by road/ railroad
+
+Routes_TechMovementChanges
+- eg. -10 when researching engineering
+
+Resources
+- which resources are luxuries
+- what techs reveal them on map
+- (wonder prod mod (marble is +15%)) obsolete: medieval era 
+- happiness
+- TechCityTrade (some tech you need to trade them?)
+
+Resource_TerrainBooleans and Resource_FeatureTerrainBooleans and Resource_FeatureBooleans
+- which resources can spawn on what terrain
+- eg. RESOURCE_IRON TERRAIN_GRASS
+
+Resource_QuantityTypes
+- eg. Horse 2 or Horse 4
+
+Processes
+- city in wealth, research mode
+- world fair
+Process_ProductionYields
+
+Policies
+- free units when researched
+- culture cost?
+- culture per city
+- wonder production modifier
+
+Improvements
+
+GameSpeeds
+- how much to modify based on QUICK / NORMAL
+
+Features
+- movement, defense, growth?, effect?
+
+Feature_YieldChanges
+- IMPORTANT
+
+Feature_HillsYieldChanges / RiverYieldChanges
+- both empty
+
+FakeFeatures
+- Lake and River?
+
+Eras
+- If start in era how much culture / gold / science / etc
+
+Civilizations
+- Which are available to play
+
+Civilization_UnitClassOverrides
+- eg UNITCLASS_BOMBER UNIT_AMERICAN_B17
+
+

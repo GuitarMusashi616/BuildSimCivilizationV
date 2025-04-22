@@ -133,6 +133,77 @@ def test_arabia_camel_archer_rush():
     return civ
 
 
+def babylon_archer_rush():
+    build_order_tech = [
+        Tech('Archery', 35),
+        Tech('Pottery', 35),
+        Tech('Writing', 55),
+        Tech('Mining', 35),
+        Tech('Bronze Working', 35),
+        Tech('Iron Working', 35),
+        Tech('Animal Husbandry', 35),
+        Tech('Calendar', 55),  # specific luxury resource tech for grapes
+        Tech('Wheel', 55),
+        Tech('Mathematics', 105),
+        Tech('Drama & Poetry', 175),
+        Tech('Trapping', 55),
+        Tech('Horseback Riding', 105),
+        Tech('Currency', 175),
+        Tech('Civil Service', 275),
+        Tech('Chivalry', 485),
+    ]
+
+    build_order_policy = [
+        Policy('Republic'),
+        Policy('Collective Rule'),
+        Policy('Citizenship'),
+        Policy('Representation'),
+        Policy('Meritocracy')
+    ]
+
+    build_order_capital: List[IQueue] = [
+        UnitFactoryStandard.scout(),
+        UnitFactoryStandard.scout(),
+        BuildingFactory.granary(),
+        UnitFactoryStandard.scout(),
+        UnitFactoryStandard.settler(),
+        UnitFactoryStandard.settler(),
+    ]
+
+    build_order_expansions: List[IQueue] = [ # type: ignore
+        BuildingFactory.granary(),
+        BuildingFactory.library(),
+        UnitFactoryStandard.chariot(),
+    ]
+
+
+    map = MapFromSave('resources/arabia_camel_rush.json')
+
+    civ = Civ(Nation.BABYLON)  # found city turn 1
+
+    capital = civ.create_city(MapHelper.get_city_tiles(map, Coord(36, 20)))
+    capital.queue_up_many(build_order_capital)
+    civ.queue_many_research(build_order_tech)
+    civ.queue_many_policy(build_order_policy)
+
+    # settler_count = 0
+    # settle_coords = [Coord(36, 28), Coord(28, 28), Coord(23, 23), Coord(20, 20), Coord(15, 15)]
+
+    first_actions: List[IUnitAction] = [SettleAction(civ, 3, MapHelper.get_city_tiles(map, Coord(36, 28)))]
+    civ.add_unit_made_listener(QueueUnitActions(3, first_actions))
+
+    second_actions: List[IUnitAction] = [SettleAction(civ, 4, MapHelper.get_city_tiles(map, Coord(28, 28)))]
+    civ.add_unit_made_listener(QueueUnitActions(4, second_actions))
+
+    print("Turn 1")
+    civ.stats()
+    for i in range(120):
+        print(f"Turn {i+2}")
+        civ.next_turn()
+        civ.stats()
+
+    return civ
+
 
 def main2():
     pass
