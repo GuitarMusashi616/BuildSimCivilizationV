@@ -59,6 +59,8 @@ how to come up with variations of strategies?
 
 Database notes:
 
+Buildings (select PrereqTech from Buildings)
+- shows the prereq tech for making each building
 
 BuildFeatures - prereqs for worker improve tiles
 BUILD_FARM FEATURE_JUNGLE TECH_BRONZE_WORKING
