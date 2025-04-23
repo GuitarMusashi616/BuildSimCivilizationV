@@ -3,16 +3,17 @@
 from typing import List
 from core.Coord import Coord
 from unit.IUnitAction import IUnitAction
+from unit.UnitType import UnitType
 from unit.IUnit import IUnit
 
-class Unit(IUnit):
+class UnitOld(IUnit):
     num_units = 0
     
-    def __init__(self, name: str, coord: Coord):
-        self._id = Unit.num_units
-        Unit.num_units += 1
+    def __init__(self, unit_type: UnitType, coord: Coord):
+        self._id = UnitOld.num_units
+        UnitOld.num_units += 1
 
-        self.name = name
+        self.unit_type = unit_type
         self._coord = coord
         self.action_queue: List[IUnitAction] = []
 
@@ -53,4 +54,4 @@ class Unit(IUnit):
         self.action_queue.append(action)
 
     def __repr__(self):
-        return f"{self.name} @ {self.coord}"
+        return f"{self.unit_type.name} @ {self.coord}"

@@ -55,12 +55,17 @@ if __name__ == "__main__":
     tree = TechTree(db_path)
     tree.research("TECH_AGRICULTURE")
     options = tree.get_options()
-    while options:
+    choice = 1
+    while options and choice > 0:
         for i in range(1, len(options) + 1):
             print(f"{i}) {options[i-1]}")
         print()
         choice = int(input("Choose which tech to research: "))
         tree.research(options[choice-1])
         options = tree.get_options()
+
+    print("[\n\t", end="")
+    print(",\n\t".join(tree.techs_researched[1:]))
+    print("]")
 
 

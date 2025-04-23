@@ -4,10 +4,12 @@ from __future__ import annotations
 import math
 from typing import Dict, List
 from adapter.IUnitMadeListener import IUnitMadeListener
+from building.IBuildingFactory import IBuildingFactory
 from core.City import City
 from core.ICity import ICity
 from core.ICiv import ICiv
 from tile.ITile import ITile
+from unit.IUnitFactory import IUnitFactory
 from util.Formula import Formula
 from enums.Nation import Nation
 from researchable.Policy import Policy
@@ -17,10 +19,13 @@ from unit.IUnit import IUnit
 STARTING_HAPPINESS = 9
 
 class Civ(ICiv):
-    def __init__(self, nation: Nation):
+    def __init__(self, nation: Nation, building_factory: IBuildingFactory, unit_factory: IUnitFactory):
+        self.building_factory = building_factory
+        self.unit_factory = unit_factory
+
         self.nation = nation
 
-        self.research_queue: List[Tech] = []
+        self.tech_queue: List[Tech] = []
         self.researched: List[Tech] = []
         self.social_policies_queue: List[Policy] = []
         self.social_policies: List[Policy] = []
@@ -41,11 +46,11 @@ class Civ(ICiv):
     def num_cities(self):
         return len(self.cities)
 
-    def queue_research(self, research: Tech):
-        self.research_queue.append(research)
+    def queue_tech(self, tech: Tech):
+        self.tech_queue.append(tech)
 
-    def queue_many_research(self, research: List[Tech]):
-        self.research_queue.extend(research)
+    def queue_many_tech(self, tech: List[Tech]):
+        self.tech_queue.extend(tech)
 
     def queue_policy(self, policy: Policy):
         self.social_policies_queue.append(policy)
@@ -58,7 +63,7 @@ class Civ(ICiv):
     
     def create_city(self, tiles: List[ITile], num_starting_tiles: int=7) -> ICity:
         is_capital = len(self.cities) < 1
-        city = City(tiles, self, num_starting_tiles, is_capital)
+        city = City(self.building_factory, self.unit_factory, tiles, self, num_starting_tiles, is_capital)
         self._add_city(city)
         return city
     
@@ -111,7 +116,7 @@ class Civ(ICiv):
 
     def get_research_progress(self):
         try:
-            return math.ceil((self.research_queue[0].science - self.science_acc) / self.get_science())
+            return math.ceil((self.tech_queue[0].science - self.science_acc) / self.get_science())
         except ZeroDivisionError:
             return -1
 
@@ -126,8 +131,8 @@ class Civ(ICiv):
 
     def stats(self):
         print("CIVILIZATON STATS")
-        if len(self.research_queue) > 0:
-            print(f'\tscience: {self.science_acc}/{self.research_queue[0].science} (+{self.get_science()}) [{self.get_research_progress()} turns]')
+        if len(self.tech_queue) > 0:
+            print(f'\tscience: {self.science_acc}/{self.tech_queue[0].science} (+{self.get_science()}) [{self.get_research_progress()} turns]')
         else:
             print(f'\tscience: +{self.get_science()}')
 
@@ -143,7 +148,7 @@ class Civ(ICiv):
         print(f'\tfaith: {self.faith_acc} (+{self.get_faith()})')
         print()
 
-        print(f'\tresearch queue: {self.research_queue}')
+        print(f'\tresearch queue: {self.tech_queue}')
         print(f'\tsocial policy queue: {self.social_policies_queue}')
         print()
 
@@ -189,9 +194,9 @@ class Civ(ICiv):
         self.science_acc += self.get_science()
         self.happiness_acc += self.get_happiness()
 
-        if self.research_queue and self.science_acc >= self.research_queue[0].science:
-            self.science_acc -= self.research_queue[0].science
-            self.researched.append(self.research_queue.pop(0))
+        if self.tech_queue and self.science_acc >= self.tech_queue[0].science:
+            self.science_acc -= self.tech_queue[0].science
+            self.researched.append(self.tech_queue.pop(0))
 
         culture_req = self.get_social_policy_culture_req()
         if self.social_policies_queue and self.culture_acc >= culture_req:

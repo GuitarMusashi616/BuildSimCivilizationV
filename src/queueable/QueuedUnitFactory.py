@@ -1,6 +1,6 @@
 from core.Coord import Coord
 from queueable.IQueue import IQueue
-from queueable.QueuedUnit import QueuedUnit
+from queueable.StaticQueuedUnit import StaticQueuedUnit
 from unit.UnitType import UnitType
 
 
@@ -11,24 +11,24 @@ class QueuedUnitFactory:
 
 
     @staticmethod
-    def settler() -> QueuedUnit:
-        return QueuedUnit(UnitType.SETTLER, 56)
+    def settler() -> StaticQueuedUnit:
+        return StaticQueuedUnit(UnitType.SETTLER, 56)
         # 106 
     
     @staticmethod
-    def worker() -> QueuedUnit:
-        return QueuedUnit(UnitType.WORKER, 46)
+    def worker() -> StaticQueuedUnit:
+        return StaticQueuedUnit(UnitType.WORKER, 46)
 
     @staticmethod
-    def warrior() -> QueuedUnit:
-        return QueuedUnit(UnitType.WARRIOR, 26)
+    def warrior() -> StaticQueuedUnit:
+        return StaticQueuedUnit(UnitType.WARRIOR, 26)
 
     @staticmethod
-    def scout() -> QueuedUnit:
+    def scout() -> StaticQueuedUnit:
         # 25 according to wiki
-        return QueuedUnit(UnitType.SCOUT, 13)
+        return StaticQueuedUnit(UnitType.SCOUT, 13)
     
-    def spawn(self, unit_type: UnitType) -> QueuedUnit:
+    def spawn(self, unit_type: UnitType) -> StaticQueuedUnit:
         if unit_type is UnitType.SETTLER:
             return self.settler()
         

@@ -1,6 +1,8 @@
 # pyright: strict
 
 from typing import List
+from building.BuildingDB import BuildingDB
+from building.BuildingFactory import BuildingFactory
 from core.Coord import Coord
 from queueable.QueuedBuildingFactory import QueuedBuildingFactory
 from core.Civ import Civ
@@ -14,6 +16,8 @@ from tile.TerrainType import TerrainType
 from tile.Tile import Tile
 from queueable.QueuedUnitFactory import QueuedUnitFactory
 from queueable.QueuedWonderFactory import QueuedWonderFactory
+from unit.UnitDB import UnitDB
+from unit.UnitFactory import UnitFactory
 
 def babylon_race_fixture() -> Civ:
     build_order_capital: List[IQueue] = [QueuedUnitFactory.worker(), QueuedBuildingFactory.granary(), QueuedWonderFactory.great_library()]
@@ -38,12 +42,14 @@ def babylon_race_fixture() -> Civ:
         Tile(Coord(1, 1), TerrainType.GRASSLAND_RIVER, ResourceType.STONE),
     ]
 
-    civ = Civ(Nation.BABYLON)  # found city turn 1
+    bfactory = BuildingFactory(BuildingDB('resources/Civ5CoreDatabase.db'))
+    ufactory = UnitFactory(UnitDB('resources/Civ5CoreDatabase.db'))
+    civ = Civ(Nation.BABYLON, bfactory, ufactory)  # found city turn 1
 
     capital = civ.create_city(base)
     capital.queue_up_many(build_order_capital)
 
-    civ.queue_many_research(build_order_tech)
+    civ.queue_many_tech(build_order_tech)
     civ.queue_many_policy(build_order_policy)
     return civ
 

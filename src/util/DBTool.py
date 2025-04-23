@@ -7,12 +7,12 @@ class DBTool:
         self.conn = sqlite3.connect(db_path)
         self.cursor = self.conn.cursor()
     
-    def all_fields_labeled(self, table: str):
+    def all_fields_labeled(self, table: str, where_clause: str = ""):
         self.cursor.execute(f"pragma table_info({table})")
         columns = [desc[1] for desc in self.cursor.fetchall()]
 
         # self.cursor.execute(f"select * from {table} where Type = 'BUILDING_MONUMENT'")
-        self.cursor.execute(f"select * from {table} limit 1")
+        self.cursor.execute(f"select * from {table} {where_clause} limit 1")
 
         for row in self.cursor.fetchall():
             col_val_pairs = dict(zip(columns, row))
@@ -50,13 +50,21 @@ def tables_with_row_counts(filter: str=""):
         qstring += f" AND tbl like '%{filter}%'"
     query(qstring)
 
+def update():
+    conn = sqlite3.connect('resources/Civ5CoreDatabase.db')
+    cursor = conn.cursor()
+    query = "update units set cost = 106 where type = 'UNIT_SETTLER'"
+    cursor.execute(query)
+    conn.commit()
+    conn.close()
+
 
 if __name__ == "__main__":
     # tool = DBTool('resources/Civ5CoreDatabase.db')
-    # tool.all_fields_labeled('Buildings')
-    # tool.all_fields_labeled('Building_BuildingClassYieldChanges')
+    # tool.all_fields_labeled('Units', "where Type = 'UNIT_SETTLER'")
 
     loop_queries()
-    # tables_with_row_counts('building')
+    # tables_with_row_counts('tech')
     # query('select * from Building_YieldChanges')
+    # query('pragma table_info(Building_YieldChanges)')
 

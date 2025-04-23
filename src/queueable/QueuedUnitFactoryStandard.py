@@ -1,24 +1,24 @@
-from queueable.QueuedUnit import QueuedUnit
+from queueable.StaticQueuedUnit import StaticQueuedUnit
 from unit.UnitType import UnitType
 
 
 class QueuedUnitFactoryStandard:
     @staticmethod
-    def settler() -> QueuedUnit:
-        return QueuedUnit(UnitType.SETTLER, 106)
+    def settler() -> StaticQueuedUnit:
+        return StaticQueuedUnit(UnitType.SETTLER, 106)
     
     @staticmethod
-    def worker() -> QueuedUnit:
-        return QueuedUnit(UnitType.WORKER, 70)
+    def worker() -> StaticQueuedUnit:
+        return StaticQueuedUnit(UnitType.WORKER, 70)
 
     @staticmethod
-    def warrior() -> QueuedUnit:
-        return QueuedUnit(UnitType.WARRIOR, 40)
+    def warrior() -> StaticQueuedUnit:
+        return StaticQueuedUnit(UnitType.WARRIOR, 40)
 
     @staticmethod
-    def scout() -> QueuedUnit:
-        return QueuedUnit(UnitType.SCOUT, 25)
+    def scout() -> StaticQueuedUnit:
+        return StaticQueuedUnit(UnitType.SCOUT, 25)
 
     @staticmethod
-    def chariot() -> QueuedUnit:
-        return QueuedUnit(UnitType.CHARIOT_ARCHER, 56)
+    def chariot() -> StaticQueuedUnit:
+        return StaticQueuedUnit(UnitType.CHARIOT_ARCHER, 56)

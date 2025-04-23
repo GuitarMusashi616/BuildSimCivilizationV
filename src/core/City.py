@@ -3,15 +3,18 @@
 from __future__ import annotations
 import math
 from typing import List
-from building.BuildingFactory import BuildingFactory
 from building.IBuilding import IBuilding
+from building.IBuildingFactory import IBuildingFactory
 from core.ICity import ICity
 from core.ICiv import ICiv
 from queueable.IQueue import IQueue
 from queueable.QueuedBuilding import QueuedBuilding
 from queueable.QueuedUnit import QueuedUnit
+from queueable.StaticQueuedBuilding import StaticQueuedBuilding
+from queueable.StaticQueuedUnit import StaticQueuedUnit
 from queueable.QueuedWonderFactory import QueuedWonderFactory
 from tile.ITile import ITile
+from unit.IUnitFactory import IUnitFactory
 from unit.UnitFactory import UnitFactory
 from util.Formula import Formula
 from tile_strat.DefaultTileStrat import DefaultTileStrat
@@ -21,8 +24,11 @@ class City(ICity):
     """Represents a city, make sure to also pick the tile the city is on!"""
     num_cities = 0
 
-    def __init__(self, tiles: List[ITile], civ: ICiv, num_starting_tiles: int=7, is_capital: bool=False):
+    def __init__(self, building_factory: IBuildingFactory, unit_factory: IUnitFactory, tiles: List[ITile], civ: ICiv, num_starting_tiles: int=7, is_capital: bool=False):
         """first tile is the city then start above it going clockwise (start on upper right if two tiles above first tile)"""
+        self.building_factory = building_factory
+        self.unit_factory = unit_factory
+
         self._id = City.num_cities
         City.num_cities += 1
 
@@ -242,8 +248,16 @@ class City(ICity):
             queueable = self.queue.pop(0)
             # instance = queueable.instantiate(self)
 
+            if isinstance(queueable, StaticQueuedBuilding):
+                instance = self.building_factory.instantiate(queueable)
+                self.add_building(instance)
+            
+            if isinstance(queueable, StaticQueuedUnit):
+                instance = UnitFactory.instantiate(queueable, self.tiles[0].coord)
+                self.civ.add_unit(instance)
+
             if isinstance(queueable, QueuedBuilding):
-                instance = BuildingFactory.instantiate(queueable)
+                instance = self.building_factory.instantiate(queueable)
                 self.add_building(instance)
             
             if isinstance(queueable, QueuedUnit):
@@ -298,7 +312,7 @@ class City(ICity):
     
     def _is_training_settler(self) -> bool:
         """Returns whether this city is currently training a settler"""
-        return bool(self.queue) and self.queue[0].name == "SETTLER"
+        return bool(self.queue) and 'settler' in self.queue[0].name.lower()
 
     def total_hammers_req(self):
         """Returns the total production hammers required to complete current item, errors if nothing queued"""

@@ -1,13 +1,13 @@
 # pyright: strict
 
 
-from queueable.QueuedBuilding import QueuedBuilding
+from queueable.StaticQueuedBuilding import StaticQueuedBuilding
 
 
 class QueuedBuildingFactory:
     @staticmethod
     def granary():
-        return QueuedBuilding(
+        return StaticQueuedBuilding(
             name = 'Granary',
             hammers_req = 60,
             culture = 0,
@@ -22,7 +22,7 @@ class QueuedBuildingFactory:
         
     @staticmethod
     def library():
-        return QueuedBuilding(
+        return StaticQueuedBuilding(
             name = 'Library',
             hammers_req = 75,
             culture = 0,

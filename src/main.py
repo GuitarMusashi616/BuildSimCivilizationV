@@ -2,16 +2,22 @@
 
 from typing import List
 from adapter.QueueUnitActions import QueueUnitActions
+from building.BuildingDB import BuildingDB
+from building.BuildingFactory import BuildingFactory
 from core.Civ import Civ
 from core.Coord import Coord
 from enums.Nation import Nation
 from map.MapHelper import MapHelper
+from queueable.QueueFactory import QueueFactory
 from queueable.QueuedBuildingFactory import QueuedBuildingFactory
 from queueable.IQueue import IQueue
 from queueable.QueuedUnitFactoryStandard import QueuedUnitFactoryStandard
+from researchable.PolicyFactory import PolicyFactory
 from researchable.Tech import Tech
 from researchable.Policy import Policy
 from queueable.QueuedUnitFactory import QueuedUnitFactory
+from researchable.TechDB import TechDB
+from researchable.TechFactory import TechFactory
 from tile.ITile import ITile
 from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
@@ -19,6 +25,8 @@ from tile.Tile import Tile
 from map.MapFromSave import MapFromSave
 from unit.IUnitAction import IUnitAction
 from unit.SettleAction import SettleAction
+from unit.UnitDB import UnitDB
+from unit.UnitFactory import UnitFactory
 
 def get_base() -> List[ITile]:
     base: List[ITile] = [
@@ -46,13 +54,15 @@ def get_base() -> List[ITile]:
 def main():
     # first tile is the city
     # then start above it going clockwise (start on upper right if two tiles above first tile)
+    bfactory = BuildingFactory(BuildingDB('resources/Civ5CoreDatabase.db'))
+    ufactory = UnitFactory(UnitDB('resources/Civ5CoreDatabase.db'))
 
-    civ = Civ(Nation.ARABIA)
+    civ = Civ(Nation.ARABIA, bfactory, ufactory)
 
     capital = civ.create_city(get_base())
     capital.queue_up(QueuedUnitFactory.worker())
 
-    civ.queue_research(Tech('Pottery', 25))
+    civ.queue_tech(Tech('Pottery', 25))
     civ.queue_policy(Policy('Oligarchy')) # type: ignore
     civ.stats()
 
@@ -107,11 +117,14 @@ def test_arabia_camel_archer_rush():
 
     map = MapFromSave('resources/arabia_camel_rush.json')
 
-    civ = Civ(Nation.BABYLON)  # found city turn 1
+    ufactory = UnitFactory(UnitDB('resources/Civ5CoreDatabase.db'))
+    bfactory = BuildingFactory(BuildingDB('resources/Civ5CoreDatabase.db'))
+
+    civ = Civ(Nation.BABYLON, bfactory, ufactory)  # found city turn 1
 
     capital = civ.create_city(MapHelper.get_city_tiles(map, Coord(36, 20)))
     capital.queue_up_many(build_order_capital)
-    civ.queue_many_research(build_order_tech)
+    civ.queue_many_tech(build_order_tech)
     civ.queue_many_policy(build_order_policy)
 
     # settler_count = 0
@@ -179,11 +192,14 @@ def babylon_archer_rush():
 
     map = MapFromSave('resources/arabia_camel_rush.json')
 
-    civ = Civ(Nation.BABYLON)  # found city turn 1
+    bfactory = BuildingFactory(BuildingDB('resources/Civ5CoreDatabase.db'))
+    ufactory = UnitFactory(UnitDB('resources/Civ5CoreDatabase.db'))
+
+    civ = Civ(Nation.BABYLON, bfactory, ufactory)  # found city turn 1
 
     capital = civ.create_city(MapHelper.get_city_tiles(map, Coord(36, 20)))
     capital.queue_up_many(build_order_capital)
-    civ.queue_many_research(build_order_tech)
+    civ.queue_many_tech(build_order_tech)
     civ.queue_many_policy(build_order_policy)
 
     # settler_count = 0
@@ -204,42 +220,57 @@ def babylon_archer_rush():
 
     return civ
 
+def new_main():
+    policy_order = [
+        "POLICY_LIBERTY",
+        "POLICY_CITIZENSHIP",
+        "POLICY_REPUBLIC",
+        "POLICY_COLLECTIVE_RULE",
+        "POLICY_REPRESENTATION",
+        "POLICY_TRADITION"
+    ]
 
-def main2():
-    pass
-    # expected output, food, prod, science, gold, culture, faith
+    tech_order = [
+        "TECH_ANIMAL_HUSBANDRY",
+        "TECH_MINING",
+        "TECH_MASONRY",
+        "TECH_TRAPPING"
+    ]
 
-    # end turn 1
+    capital_order = [
+        "BUILDING_MONUMENT",
+        "UNIT_SCOUT",
+        "UNIT_SETTLER",
+    ]
 
-    # science = 0/25 (+4) [7 turns]
-    # researched = [agriculture]
+    db_path = 'resources/Civ5CoreDatabase.db'
+    tfactory = TechFactory(TechDB(db_path))
+    bfactory = BuildingFactory(BuildingDB(db_path))
+    ufactory = UnitFactory(UnitDB(db_path))
+    qfactory = QueueFactory(bfactory, ufactory)
 
-    # gold = 22 (+3)
-    # happiness = 5 (+9, -4)
+    capital_order = qfactory.from_string_list(capital_order)
+    tech_order = tfactory.from_string_list(tech_order)
+    policy_order = PolicyFactory.from_string_list(policy_order)
 
-    # culture = 0/15 (+1) [15 turns]
-    # researched = [garrison(tradition)]
+    map = MapFromSave('resources/arabia_camel_rush.json')
+    civ = Civ(Nation.BABYLON, bfactory, ufactory)  # found city turn 1
 
-    # faith = 0/6 (+0) [inf turns]
+    capital = civ.create_city(MapHelper.get_city_tiles(map, Coord(36, 20)))
+    capital.queue_up_many(capital_order)
+    civ.queue_many_tech(tech_order)
+    civ.queue_many_policy(policy_order)
 
-    # city 1
-        # pop: 1, growth: 20/30 (+2) [5 turns]
-        # prod: 'worker' 0/46 (+5) [10 turns]
+    print("Turn 1")
+    civ.stats()
+    for i in range(120):
+        print(f"Turn {i+2}")
+        civ.next_turn()
+        civ.stats()
 
-        # gold: +3
-        # science: +4
-        # faith: +0
-        # tourism: +0
-        # culture: +1, border growth (0/10)
-
-        # tiles: []
-        # buildings: []
-        # wonders: []
-
-
-    # units = {warrior: 1, scout: 2}
 
 
 if __name__ == "__main__":
     # main()
-    test_arabia_camel_archer_rush()
+    # test_arabia_camel_archer_rush()
+    new_main()

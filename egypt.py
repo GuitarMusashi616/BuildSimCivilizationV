@@ -1,6 +1,8 @@
 # pyright: strict
 
 from typing import List
+from building.BuildingDB import BuildingDB
+from building.BuildingFactory import BuildingFactory
 from core.City import City
 from core.Coord import Coord
 from map.IMap import IMap
@@ -16,9 +18,14 @@ from tile.TerrainType import TerrainType
 from tile.Tile import Tile
 from unit.MoveAction import MoveAction
 from unit.SettleAction import SettleAction
+from unit.UnitDB import UnitDB
+from unit.UnitFactory import UnitFactory
 
 def egypt_turn_0():
-    civ = Civ(Nation.EGYPT)
+    bfactory = BuildingFactory(BuildingDB('resources/Civ5CoreDatabase.db'))
+    ufactory = UnitFactory(UnitDB('resources/Civ5CoreDatabase.db'))
+
+    civ = Civ(Nation.EGYPT, bfactory, ufactory)
     civ.add_unit(QueuedUnitFactory.settler().to_unit(Coord(0, 0)))
     civ.add_unit(QueuedUnitFactory.warrior().to_unit(Coord(0, 1)))
     return civ
@@ -37,7 +44,9 @@ def egypt_base_fixture():
         Tile(Coord(0, 0), TerrainType.GRASSLAND_RIVER),
     ]
 
-    civ = Civ(Nation.EGYPT)
+    bfactory = BuildingFactory(BuildingDB('resources/Civ5CoreDatabase.db'))
+    ufactory = UnitFactory(UnitDB('resources/Civ5CoreDatabase.db'))
+    civ = Civ(Nation.EGYPT, bfactory, ufactory)
 
     civ.create_city(base)
     # capital.queue_up(UnitFactory.settler())
@@ -76,7 +85,9 @@ def test_grass_only_map():
     grassmap = Map.grassmap(-10, 10, 10, -10)
     base = grassmap.get_city_tiles(Coord(0, 0))
 
-    civ = Civ(Nation.EGYPT)
+    bfactory = BuildingFactory(BuildingDB('resources/Civ5CoreDatabase.db'))
+    ufactory = UnitFactory(UnitDB('resources/Civ5CoreDatabase.db'))
+    civ = Civ(Nation.EGYPT, bfactory, ufactory)
     capital = civ.create_city(base)
     capital.queue_up(QueuedUnitFactory.settler())
 
@@ -105,7 +116,9 @@ def test_settling_map_from_save():
     mapsave: IMap = MapFromSave('resources/output.json')
     base = MapHelper.get_city_tiles(mapsave, Coord(20, 20))
 
-    civ = Civ(Nation.EGYPT)
+    bfactory = BuildingFactory(BuildingDB('resources/Civ5CoreDatabase.db'))
+    ufactory = UnitFactory(UnitDB('resources/Civ5CoreDatabase.db'))
+    civ = Civ(Nation.EGYPT, bfactory, ufactory)
     capital = civ.create_city(base)
     capital.queue_up(QueuedUnitFactory.settler())
 

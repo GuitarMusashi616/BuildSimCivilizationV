@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from dataclasses import dataclass
+from typing import Dict
 
 @dataclass
 class TileOutput:
@@ -13,6 +14,17 @@ class TileOutput:
     culture: int
     science: int
     faith: int
+
+    @staticmethod
+    def from_yield(dic: Dict[str, int]):
+        return TileOutput(
+            food = dic['YIELD_FOOD'] if 'YIELD_PRODUCTION' in dic else 0,
+            prod = dic['YIELD_PRODUCTION'] if 'YIELD_PRODUCTION' in dic else 0,
+            gold = dic['YIELD_GOLD'] if 'YIELD_GOLD' in dic else 0,
+            science = dic['YIELD_SCIENCE'] if 'YIELD_SCIENCE' in dic else 0,
+            faith = dic['YIELD_FAITH'] if 'YIELD_FAITH' in dic else 0,
+            culture = dic['YIELD_CULTURE'] if 'YIELD_CULTURE' in dic else 0,
+        )
 
     def __add__(self, other: TileOutput):
         return TileOutput(

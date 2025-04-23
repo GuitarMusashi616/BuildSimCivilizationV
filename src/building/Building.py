@@ -1,25 +1,35 @@
 # pyright: strict
 
-import sqlite3
+from building.IBuilding import IBuilding
+from tile.TileOutput import TileOutput
 
-class Building:
-    """Returns values associated with a building by wrapping a name like 'BUILDING_MONUMENT' and searching the database"""
 
-    db_path = 'resources/Civ5CoreDatabase.db'
-
-    def __init__(self, name: str):
+class Building(IBuilding):
+    def __init__(self, name: str, output: TileOutput):
         self.name = name
-        self.conn = sqlite3.connect(Building.db_path)
-        self.cursor = self.conn.cursor()
+        self.output = output
 
-    def get_cost(self) -> int:
-        # self.cursor.execute('select ')
-        self.cursor.execute(f"select cost from Buildings where type = '{self.name}'")
-        row = self.cursor.fetchone()
-        assert row is not None, f"{self.name} could not be identified"
-        return int(row[0])
+    @property
+    def food(self) -> int:
+        return self.output.food
 
+    @property
+    def prod(self) -> int:
+        return self.output.prod
 
-if __name__ == "__main__":
-    building = Building('BUILDING_MONUMENT')
-    print(building.get_cost())
+    @property
+    def gold(self) -> int:
+        return self.output.gold
+
+    @property
+    def science(self) -> int:
+        return self.output.science
+
+    @property
+    def culture(self) -> int:
+        return self.output.culture
+
+    @property
+    def faith(self) -> int:
+        return self.output.faith
+    
