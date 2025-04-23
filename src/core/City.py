@@ -3,14 +3,16 @@
 from __future__ import annotations
 import math
 from typing import List
+from building.BuildingFactory import BuildingFactory
+from building.IBuilding import IBuilding
 from core.ICity import ICity
 from core.ICiv import ICiv
 from queueable.IQueue import IQueue
-from queueable.UnitInProgress import UnitInProgress
-from queueable.Wonder import Wonder
-from queueable.WonderFactory import WonderFactory
+from queueable.QueuedBuilding import QueuedBuilding
+from queueable.QueuedUnit import QueuedUnit
+from queueable.QueuedWonderFactory import QueuedWonderFactory
 from tile.ITile import ITile
-from queueable.Building import Building
+from unit.UnitFactory import UnitFactory
 from util.Formula import Formula
 from tile_strat.DefaultTileStrat import DefaultTileStrat
 from tile_strat.IPickTileStrat import IPickTileStrat
@@ -30,25 +32,30 @@ class City(ICity):
         self.culture_acc: int = 0
 
         self.civ: ICiv = civ
-        self.tiles: List[ITile] = tiles[:num_starting_tiles]
+        self._tiles: List[ITile] = tiles[:num_starting_tiles]
         self.future_tiles: List[ITile] = tiles[num_starting_tiles:]
         self.tile_strat: IPickTileStrat = DefaultTileStrat()
 
-        self.wonders: List[Wonder] = []
-        self.buildings: List[Building] = []
+        # self.wonders: List[QueuedWonder] = []
+        self.buildings: List[IBuilding] = []
         self.queue: List[IQueue] = []
         self.startup(is_capital)
     
     @property
     def id(self) -> int:
         return self._id
+    
+    @property
+    def tiles(self) -> List[ITile]:
+        return self._tiles
 
     def startup(self, is_capital: bool=False):
         """Does the initial city setup"""
         self.tiles[0].has_city = True
 
         if is_capital:
-            self.add_wonder(WonderFactory.palace())
+            # self.add_wonder(QueuedWonderFactory.palace())
+            self.add_building(QueuedWonderFactory.palace())
 
         self.pick_tiles_with_strat()
 
@@ -70,10 +77,10 @@ class City(ICity):
     def set_tile_strat(self, tile_strat: IPickTileStrat):
         self.tile_strat = tile_strat
     
-    def add_wonder(self, wonder: Wonder):
-        self.wonders.append(wonder)
+    # def add_wonder(self, wonder: QueuedWonder):
+    #     self.wonders.append(wonder)
 
-    def add_building(self, building: Building):
+    def add_building(self, building: IBuilding):
         self.buildings.append(building)
 
     def queue_up(self, iqueue: IQueue):
@@ -91,8 +98,8 @@ class City(ICity):
             if tile.is_worked:
                 prod += tile.output.prod
         
-        for wonder in self.wonders:
-            prod += wonder.prod
+        # for wonder in self.wonders:
+        #     prod += wonder.prod
 
         for building in self.buildings:
             prod += building.prod
@@ -109,8 +116,8 @@ class City(ICity):
             if tile.is_worked:
                 food += tile.output.food
         
-        for wonder in self.wonders:
-            food += wonder.food
+        # for wonder in self.wonders:
+        #     food += wonder.food
         
         for building in self.buildings:
             food += building.food
@@ -129,8 +136,8 @@ class City(ICity):
             if tile.is_worked:
                 gold += tile.output.gold
 
-        for wonder in self.wonders:
-            gold += wonder.gold
+        # for wonder in self.wonders:
+        #     gold += wonder.gold
 
         for building in self.buildings:
             gold += building.gold
@@ -144,8 +151,8 @@ class City(ICity):
             if tile.is_worked:
                 science += tile.output.science
 
-        for wonder in self.wonders:
-            science += wonder.science
+        # for wonder in self.wonders:
+        #     science += wonder.science
 
         for building in self.buildings:
             science += building.science
@@ -163,8 +170,8 @@ class City(ICity):
             if tile.is_worked:
                 faith += tile.output.faith
 
-        for wonder in self.wonders:
-            faith += wonder.faith
+        # for wonder in self.wonders:
+        #     faith += wonder.faith
 
         for building in self.buildings:
             faith += building.faith
@@ -181,8 +188,8 @@ class City(ICity):
             if tile.is_worked:
                 culture += tile.output.culture
 
-        for wonder in self.wonders:
-            culture += wonder.culture
+        # for wonder in self.wonders:
+        #     culture += wonder.culture
 
         for building in self.buildings:
             culture += building.culture
@@ -233,14 +240,24 @@ class City(ICity):
         if self.has_queued() and self.hammers_acc >= self.total_hammers_req():
             self.hammers_acc -= self.total_hammers_req()
             queueable = self.queue.pop(0)
-            if isinstance(queueable, Wonder):
-                self.add_wonder(queueable)
+            # instance = queueable.instantiate(self)
 
-            if isinstance(queueable, Building):
-                self.add_building(queueable)
+            if isinstance(queueable, QueuedBuilding):
+                instance = BuildingFactory.instantiate(queueable)
+                self.add_building(instance)
             
-            if isinstance(queueable, UnitInProgress):
-                self.civ.add_unit(queueable.to_unit(self.tiles[0].coord))
+            if isinstance(queueable, QueuedUnit):
+                instance = UnitFactory.instantiate(queueable, self.tiles[0].coord)
+                self.civ.add_unit(instance)
+
+            # if isinstance(queueable, QueuedWonder):
+            #     self.add_wonder(queueable)
+
+            # if isinstance(queueable, QueuedBuilding):
+            #     self.add_building(queueable)
+            
+            # if isinstance(queueable, QueuedUnit):
+            #     self.civ.add_unit(queueable.to_unit(self.tiles[0].coord))
 
 
     def next_turn(self):

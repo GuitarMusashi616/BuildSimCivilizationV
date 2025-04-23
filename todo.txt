@@ -60,7 +60,14 @@ how to come up with variations of strategies?
 Database notes:
 
 Buildings (select PrereqTech from Buildings)
-- shows the prereq tech for making each building
+- PrereqTech (shows the prereq tech for making each building) 
+- gold maintenance
+- cost
+- hurry cost modifier (price to buy it?)
+- free start era (eg medieval era get this building for free)
+
+Building_YieldChanges
+- simply shows like monument +2 culture and granary +2 food
 
 BuildFeatures - prereqs for worker improve tiles
 BUILD_FARM FEATURE_JUNGLE TECH_BRONZE_WORKING
@@ -151,5 +158,4 @@ Civilizations
 
 Civilization_UnitClassOverrides
 - eg UNITCLASS_BOMBER UNIT_AMERICAN_B17
-
 

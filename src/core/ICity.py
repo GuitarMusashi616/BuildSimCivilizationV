@@ -4,12 +4,18 @@ from abc import ABC, abstractmethod
 from typing import List
 
 from queueable.IQueue import IQueue
+from tile.ITile import ITile
 
 class ICity(ABC):
     @property
     @abstractmethod
     def id(self) -> int:
         """Returns the entity's id"""
+
+    @property
+    @abstractmethod
+    def tiles(self) -> List[ITile]:
+        """Returns the tiles that the city is on"""
 
     @abstractmethod
     def next_turn(self):
@@ -46,4 +52,5 @@ class ICity(ABC):
     @abstractmethod
     def get_faith(self) -> int:
         pass
+    
 

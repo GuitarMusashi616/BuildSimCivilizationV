@@ -13,7 +13,7 @@ from core.Coord import Coord
 from core.ICiv import ICiv
 from enums.Nation import Nation
 from map.MapFactory import MapFactory
-from queueable.UnitFactory import UnitFactory
+from queueable.QueuedUnitFactory import QueuedUnitFactory
 from unit.IUnit import IUnit
 from unit.IUnitAction import IUnitAction
 from unit.SettleAction import SettleAction
@@ -38,7 +38,7 @@ class TestUnits(unittest.TestCase):
     def test_workers(self):
         # civ = Civ(Nation.ARABIA)
 
-        worker = UnitFactory.worker()
+        worker = QueuedUnitFactory.worker()
 
         worker.next_turn()
     

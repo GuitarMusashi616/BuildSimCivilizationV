@@ -25,21 +25,11 @@ class CityTree:
         self.cursor.execute(query, self.techs + self.buildings)
         return [x[0] for x in self.cursor.fetchall()]
 
-def loop_queries():
-    conn = sqlite3.connect('resources/Civ5CoreDatabase.db')
-    cursor = conn.cursor()
-    query = "something"
-    while query:
-        query = input("Query: ")
-        cursor.execute(query)
-        for row in cursor.fetchall():
-            print(row)
-            print()
-
-
-if __name__ == "__main__":
-    # loop_queries()
+def test():
     tree = CityTree('resources/Civ5CoreDatabase.db')
     tree.research('TECH_CALENDAR')
     tree.build('BUILDING_MONUMENT')
     print(tree.get_options())
+
+if __name__ == "__main__":
+    test()

@@ -1,10 +1,10 @@
 from commands.TrainUnit import TrainUnit
-from queueable.UnitFactory import UnitFactory
+from queueable.QueuedUnitFactory import QueuedUnitFactory
 from repositories.CivRepo import CivRepo
 
 
 class TrainUnitHandler:
-    def __init__(self, civ_repo: CivRepo, unit_factory: UnitFactory):
+    def __init__(self, civ_repo: CivRepo, unit_factory: QueuedUnitFactory):
         self.civ_repo = civ_repo
         self.unit_factory = unit_factory
 

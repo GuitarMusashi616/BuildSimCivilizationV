@@ -1,12 +1,12 @@
 # pyright: basic
 
-from queueable.Wonder import Wonder
+from queueable.QueuedWonder import QueuedWonder
 
 
-class WonderFactory:
+class QueuedWonderFactory:
     @staticmethod
-    def palace() -> Wonder:
-        return Wonder(
+    def palace() -> QueuedWonder:
+        return QueuedWonder(
             name='Palace',
             culture=1,
             defense=2.5,
@@ -21,7 +21,7 @@ class WonderFactory:
 
     @staticmethod
     def great_library():
-        return Wonder(
+        return QueuedWonder(
             name='Great Library',
             culture=0,
             defense=0,

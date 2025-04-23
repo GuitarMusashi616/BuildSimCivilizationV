@@ -6,12 +6,12 @@ from core.Civ import Civ
 from core.Coord import Coord
 from enums.Nation import Nation
 from map.MapHelper import MapHelper
-from queueable.BuildingFactory import BuildingFactory
+from queueable.QueuedBuildingFactory import QueuedBuildingFactory
 from queueable.IQueue import IQueue
-from queueable.UnitFactoryStandard import UnitFactoryStandard
+from queueable.QueuedUnitFactoryStandard import QueuedUnitFactoryStandard
 from researchable.Tech import Tech
 from researchable.Policy import Policy
-from queueable.UnitFactory import UnitFactory
+from queueable.QueuedUnitFactory import QueuedUnitFactory
 from tile.ITile import ITile
 from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
@@ -50,7 +50,7 @@ def main():
     civ = Civ(Nation.ARABIA)
 
     capital = civ.create_city(get_base())
-    capital.queue_up(UnitFactory.worker())
+    capital.queue_up(QueuedUnitFactory.worker())
 
     civ.queue_research(Tech('Pottery', 25))
     civ.queue_policy(Policy('Oligarchy')) # type: ignore
@@ -90,18 +90,18 @@ def test_arabia_camel_archer_rush():
     ]
 
     build_order_capital: List[IQueue] = [
-        UnitFactoryStandard.scout(),
-        UnitFactoryStandard.scout(),
-        BuildingFactory.granary(),
-        UnitFactoryStandard.scout(),
-        UnitFactoryStandard.settler(),
-        UnitFactoryStandard.settler(),
+        QueuedUnitFactoryStandard.scout(),
+        QueuedUnitFactoryStandard.scout(),
+        QueuedBuildingFactory.granary(),
+        QueuedUnitFactoryStandard.scout(),
+        QueuedUnitFactoryStandard.settler(),
+        QueuedUnitFactoryStandard.settler(),
     ]
 
     build_order_expansions: List[IQueue] = [ # type: ignore
-        BuildingFactory.granary(),
-        BuildingFactory.library(),
-        UnitFactoryStandard.chariot(),
+        QueuedBuildingFactory.granary(),
+        QueuedBuildingFactory.library(),
+        QueuedUnitFactoryStandard.chariot(),
     ]
 
 
@@ -162,18 +162,18 @@ def babylon_archer_rush():
     ]
 
     build_order_capital: List[IQueue] = [
-        UnitFactoryStandard.scout(),
-        UnitFactoryStandard.scout(),
-        BuildingFactory.granary(),
-        UnitFactoryStandard.scout(),
-        UnitFactoryStandard.settler(),
-        UnitFactoryStandard.settler(),
+        QueuedUnitFactoryStandard.scout(),
+        QueuedUnitFactoryStandard.scout(),
+        QueuedBuildingFactory.granary(),
+        QueuedUnitFactoryStandard.scout(),
+        QueuedUnitFactoryStandard.settler(),
+        QueuedUnitFactoryStandard.settler(),
     ]
 
     build_order_expansions: List[IQueue] = [ # type: ignore
-        BuildingFactory.granary(),
-        BuildingFactory.library(),
-        UnitFactoryStandard.chariot(),
+        QueuedBuildingFactory.granary(),
+        QueuedBuildingFactory.library(),
+        QueuedUnitFactoryStandard.chariot(),
     ]
 
 

@@ -7,9 +7,9 @@ from map.IMap import IMap
 from map.Map import Map
 from map.MapFromSave import MapFromSave
 from map.MapHelper import MapHelper
-from queueable.BuildingFactory import BuildingFactory
+from queueable.QueuedBuildingFactory import QueuedBuildingFactory
 from src.core.Civ import Civ, Nation
-from queueable.UnitFactory import UnitFactory
+from queueable.QueuedUnitFactory import QueuedUnitFactory
 from tile.ITile import ITile
 from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
@@ -19,8 +19,8 @@ from unit.SettleAction import SettleAction
 
 def egypt_turn_0():
     civ = Civ(Nation.EGYPT)
-    civ.add_unit(UnitFactory.settler().to_unit(Coord(0, 0)))
-    civ.add_unit(UnitFactory.warrior().to_unit(Coord(0, 1)))
+    civ.add_unit(QueuedUnitFactory.settler().to_unit(Coord(0, 0)))
+    civ.add_unit(QueuedUnitFactory.warrior().to_unit(Coord(0, 1)))
     return civ
 
 
@@ -48,7 +48,7 @@ def egypt_base_fixture():
 def test_lock_hammers_for_extra_hammers_trick():
     """When a city grows it should automatically assign the new population to a tile, if that tile has production then it immediately is added towards the goal"""
     civ = egypt_base_fixture()
-    civ.cities[0].queue_up(BuildingFactory.granary())
+    civ.cities[0].queue_up(QueuedBuildingFactory.granary())
     print("Turn 1")
     civ.stats()
     for i in range(4):
@@ -61,7 +61,7 @@ def test_lock_hammers_for_extra_hammers_trick():
 def test_settler_coord():
     """Test the new coords for tiles and units"""
     civ = egypt_base_fixture()
-    civ.cities[0].queue_up(UnitFactory.settler())
+    civ.cities[0].queue_up(QueuedUnitFactory.settler())
     print("Turn 1")
     civ.stats()
     for i in range(14):
@@ -78,7 +78,7 @@ def test_grass_only_map():
 
     civ = Civ(Nation.EGYPT)
     capital = civ.create_city(base)
-    capital.queue_up(UnitFactory.settler())
+    capital.queue_up(QueuedUnitFactory.settler())
 
     print("Turn 1")
     civ.stats()
@@ -107,7 +107,7 @@ def test_settling_map_from_save():
 
     civ = Civ(Nation.EGYPT)
     capital = civ.create_city(base)
-    capital.queue_up(UnitFactory.settler())
+    capital.queue_up(QueuedUnitFactory.settler())
 
     print("Turn 1")
     civ.stats()

@@ -2,7 +2,7 @@
 
 from typing import List
 from core.Coord import Coord
-from queueable.BuildingFactory import BuildingFactory
+from queueable.QueuedBuildingFactory import QueuedBuildingFactory
 from core.Civ import Civ
 from enums.Nation import Nation
 from queueable.IQueue import IQueue
@@ -12,11 +12,11 @@ from tile.ITile import ITile
 from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
 from tile.Tile import Tile
-from queueable.UnitFactory import UnitFactory
-from queueable.WonderFactory import WonderFactory
+from queueable.QueuedUnitFactory import QueuedUnitFactory
+from queueable.QueuedWonderFactory import QueuedWonderFactory
 
 def babylon_race_fixture() -> Civ:
-    build_order_capital: List[IQueue] = [UnitFactory.worker(), BuildingFactory.granary(), WonderFactory.great_library()]
+    build_order_capital: List[IQueue] = [QueuedUnitFactory.worker(), QueuedBuildingFactory.granary(), QueuedWonderFactory.great_library()]
     build_order_tech = [TechFactory.pottery(), TechFactory.writing()]
     build_order_policy = [PolicyFactory.oligarchy()]
 

@@ -1,34 +1,34 @@
 from core.Coord import Coord
 from queueable.IQueue import IQueue
-from queueable.UnitInProgress import UnitInProgress
+from queueable.QueuedUnit import QueuedUnit
 from unit.UnitType import UnitType
 
 
-class UnitFactory:
+class QueuedUnitFactory:
     # Quick is 2/3 rounded down
     # Normal is 1x
     # Epic is 1.5x, etc
 
 
     @staticmethod
-    def settler() -> UnitInProgress:
-        return UnitInProgress(UnitType.SETTLER, 56)
+    def settler() -> QueuedUnit:
+        return QueuedUnit(UnitType.SETTLER, 56)
         # 106 
     
     @staticmethod
-    def worker() -> UnitInProgress:
-        return UnitInProgress(UnitType.WORKER, 46)
+    def worker() -> QueuedUnit:
+        return QueuedUnit(UnitType.WORKER, 46)
 
     @staticmethod
-    def warrior() -> UnitInProgress:
-        return UnitInProgress(UnitType.WARRIOR, 26)
+    def warrior() -> QueuedUnit:
+        return QueuedUnit(UnitType.WARRIOR, 26)
 
     @staticmethod
-    def scout() -> UnitInProgress:
+    def scout() -> QueuedUnit:
         # 25 according to wiki
-        return UnitInProgress(UnitType.SCOUT, 13)
+        return QueuedUnit(UnitType.SCOUT, 13)
     
-    def spawn(self, unit_type: UnitType) -> UnitInProgress:
+    def spawn(self, unit_type: UnitType) -> QueuedUnit:
         if unit_type is UnitType.SETTLER:
             return self.settler()
         
