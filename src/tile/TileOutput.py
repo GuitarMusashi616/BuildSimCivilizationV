@@ -18,7 +18,7 @@ class TileOutput:
     @staticmethod
     def from_yield(dic: Dict[str, int]):
         return TileOutput(
-            food = dic['YIELD_FOOD'] if 'YIELD_PRODUCTION' in dic else 0,
+            food = dic['YIELD_FOOD'] if 'YIELD_FOOD' in dic else 0,
             prod = dic['YIELD_PRODUCTION'] if 'YIELD_PRODUCTION' in dic else 0,
             gold = dic['YIELD_GOLD'] if 'YIELD_GOLD' in dic else 0,
             science = dic['YIELD_SCIENCE'] if 'YIELD_SCIENCE' in dic else 0,

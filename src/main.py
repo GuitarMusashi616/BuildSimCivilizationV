@@ -231,6 +231,7 @@ def new_main():
     ]
 
     tech_order = [
+        "TECH_POTTERY",
         "TECH_ANIMAL_HUSBANDRY",
         "TECH_MINING",
         "TECH_MASONRY",
@@ -239,6 +240,7 @@ def new_main():
 
     capital_order = [
         "BUILDING_MONUMENT",
+        "BUILDING_GRANARY",
         "UNIT_SCOUT",
         "UNIT_SETTLER",
     ]
