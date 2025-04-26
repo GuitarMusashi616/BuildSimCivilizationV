@@ -1,5 +1,6 @@
 # pyright: strict
 
+import math
 import sqlite3
 from typing import Dict
 
@@ -9,15 +10,16 @@ from tile.TileOutput import TileOutput
 class BuildingDB(IBuildingDB):
     """Returns values associated with a building by wrapping a name like 'BUILDING_MONUMENT' and searching the database"""
 
-    def __init__(self, db_path: str = 'resources/Civ5CoreDatabase.db'):
+    def __init__(self, db_path: str = 'resources/Civ5CoreDatabase.db', game_speed_mult: float = 2/3):
         self.conn = sqlite3.connect(db_path)
         self.cursor = self.conn.cursor()
+        self.game_speed_mult = game_speed_mult
 
     def get_cost(self, building: str) -> int:
         self.cursor.execute(f"select cost from Buildings where type = ?", (building,))
         row = self.cursor.fetchone()
         assert row is not None, f"{building} could not be identified"
-        return int(row[0])
+        return math.floor(int(row[0]) * self.game_speed_mult)
     
     def get_yields(self, building: str) -> TileOutput:
         self.cursor.execute(f"select YieldType, Yield from Building_YieldChanges where BuildingType = ?", (building,))
@@ -29,6 +31,27 @@ class BuildingDB(IBuildingDB):
             dic[row[0]] = row[1]
 
         return TileOutput.from_yield(dic)
+    
+    def get_resource_yield_changes(self, building: str) -> Dict[str, TileOutput]:
+        self.cursor.execute(f"select ResourceType, YieldType, Yield from Building_ResourceYieldChanges where BuildingType = ?", (building,))
+        rows = self.cursor.fetchall()
+
+        output: Dict[str, TileOutput] = {}
+        dic: Dict[str, Dict[str, int]] = {}
+
+        for row in rows:
+            if not row[0] in dic:
+                dic[row[0]] = {}
+
+            dic[row[0]][row[1]] = row[2]
+        
+        for resource in dic:
+            output[resource] = TileOutput.from_yield(dic[resource])
+        
+        return output
+        
+
+        
 
 
 

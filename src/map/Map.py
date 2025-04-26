@@ -27,6 +27,9 @@ class Map(IMap):
     def get_city_tiles(self, center: Coord) -> List[ITile]:
         """Returns the clockwise order of tiles from the map starting from the middle"""
         return MapHelper.get_city_tiles(self, center)
+
+    def get_width_height(self) -> Tuple[int, int]:
+        return (20, 20)
     
     @staticmethod
     def coord_gen(col_low: int, col_high: int, row_high: int, row_low: int) -> List[Coord]:

@@ -3,6 +3,7 @@
 from __future__ import annotations
 import math
 from typing import Dict, List
+from adapter.ICityMadeListener import ICityMadeListener
 from adapter.IUnitMadeListener import IUnitMadeListener
 from building.IBuildingFactory import IBuildingFactory
 from core.City import City
@@ -41,6 +42,7 @@ class Civ(ICiv):
         self.happiness_acc = 0
         
         self.unit_made_listeners: List[IUnitMadeListener] = []
+        self.city_made_listeners: List[ICityMadeListener] = []
 
     @property
     def num_cities(self):
@@ -60,6 +62,8 @@ class Civ(ICiv):
     
     def _add_city(self, city: ICity):
         self.cities[city.id] = city
+        for listener in self.city_made_listeners:
+            listener.notify(city)
     
     def create_city(self, tiles: List[ITile], num_starting_tiles: int=7) -> ICity:
         is_capital = len(self.cities) < 1
@@ -206,4 +210,7 @@ class Civ(ICiv):
 
     def add_unit_made_listener(self, listener: IUnitMadeListener):
         self.unit_made_listeners.append(listener)
+
+    def add_city_made_listener(self, listener: ICityMadeListener):
+        self.city_made_listeners.append(listener)
 

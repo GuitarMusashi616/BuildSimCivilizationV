@@ -16,3 +16,21 @@ class DefaultTileStrat(IPickTileStrat):
 
         return [0] + [i for i,_ in tile_copy[:how_many]]
 
+
+if __name__ == "__main__":
+    from core.Coord import Coord
+    from map.MapFromSave import MapFromSave
+    from map.MapHelper import MapHelper
+
+    map = MapFromSave('resources/greece_map.json')
+    start_coord = Coord(20, 29)
+    base = MapHelper.get_city_tiles(map, start_coord)
+
+    strat = DefaultTileStrat()
+
+    picked = strat.pick_tiles(base, 1)
+    print(picked)
+    for i,tile in enumerate(base):
+        print(i, tile, '  -  ', tile.output)
+
+

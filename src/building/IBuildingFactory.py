@@ -3,12 +3,13 @@
 from abc import ABC, abstractmethod
 
 from building.IBuilding import IBuilding
+from core.ICity import ICity
 from queueable.IQueue import IQueue
 
 class IBuildingFactory(ABC):
 
     @abstractmethod
-    def instantiate(self, queueable: IQueue) -> IBuilding:
+    def instantiate(self, queueable: IQueue, city: ICity) -> IBuilding:
         """Returns a fully instantiated building"""
 
     @abstractmethod

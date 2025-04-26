@@ -1,6 +1,8 @@
 # pyright: strict
 
 from typing import List
+from adapter.QueueCityActions import QueueCityActions
+from adapter.QueueUnitActions import QueueUnitActions
 from building.BuildingDB import BuildingDB
 from building.BuildingFactory import BuildingFactory
 from core.City import City
@@ -9,7 +11,11 @@ from map.IMap import IMap
 from map.Map import Map
 from map.MapFromSave import MapFromSave
 from map.MapHelper import MapHelper
+from queueable.QueueFactory import QueueFactory
 from queueable.QueuedBuildingFactory import QueuedBuildingFactory
+from researchable.PolicyFactory import PolicyFactory
+from researchable.TechDB import TechDB
+from researchable.TechFactory import TechFactory
 from src.core.Civ import Civ, Nation
 from queueable.QueuedUnitFactory import QueuedUnitFactory
 from tile.ITile import ITile
@@ -18,6 +24,7 @@ from tile.TerrainType import TerrainType
 from tile.Tile import Tile
 from unit.MoveAction import MoveAction
 from unit.SettleAction import SettleAction
+from unit.Unit import Unit
 from unit.UnitDB import UnitDB
 from unit.UnitFactory import UnitFactory
 
@@ -133,10 +140,73 @@ def test_settling_map_from_save():
             settler.queue(SettleAction(civ, settler.id, MapHelper.get_city_tiles(mapsave, Coord(25, 23))))
 
 
+def greece():
+    policy_order = [
+        "POLICY_LIBERTY",
+        "POLICY_CITIZENSHIP",
+        "POLICY_REPUBLIC",
+        "POLICY_COLLECTIVE_RULE",
+        "POLICY_REPRESENTATION",
+        "POLICY_TRADITION"
+    ]
+
+    tech_order = [
+        "TECH_POTTERY",
+        "TECH_ANIMAL_HUSBANDRY",
+        "TECH_MINING",
+        "TECH_MASONRY",
+        "TECH_TRAPPING"
+    ]
+
+    capital_order = [
+        "BUILDING_MONUMENT",
+        "BUILDING_GRANARY",
+        "UNIT_SCOUT",
+        "UNIT_SETTLER",
+    ]
+
+    db_path = 'resources/Civ5CoreDatabase.db'
+    tfactory = TechFactory(TechDB(db_path))
+    bfactory = BuildingFactory(BuildingDB(db_path))
+    ufactory = UnitFactory(UnitDB(db_path))
+    qfactory = QueueFactory(bfactory, ufactory)
+
+    capital_order = qfactory.from_string_list(capital_order)
+    tech_order = tfactory.from_string_list(tech_order)
+    policy_order = PolicyFactory.from_string_list(policy_order)
+
+    map = MapFromSave('resources/greece_map.json')
+    civ = Civ(Nation.BABYLON, bfactory, ufactory)  # found city turn 1
+
+    start_coord = Coord(20, 29)
+    base = MapHelper.get_city_tiles(map, start_coord)
+    civ.add_unit_made_listener(QueueUnitActions(0, [SettleAction(civ, 0, base)]))
+    civ.add_city_made_listener(QueueCityActions(0, capital_order))
+
+    civ.add_unit(Unit('UNIT_SETTLER', start_coord))
+
+    MapHelper.find_coord(map, [ResourceType.NONE, ResourceType.RESOURCE_IVORY, ResourceType.NONE, ResourceType.NONE, ResourceType.NONE])
+
+    civ.queue_many_tech(tech_order)
+    civ.queue_many_policy(policy_order)
+
+
+    # coord = Coord(28, 28)
+
+    # capital = civ.create_city(base)
+    # capital.queue_up_many(capital_order)
+
+    print("Turn 1")
+    civ.stats()
+    for i in range(120):
+        print(f"Turn {i+2}")
+        civ.next_turn()
+        civ.stats()
 
 
 if __name__ == "__main__":
     # test_settler_coord()
     # test_grass_only_map()
     # test_map_from_save()
-    test_settling_map_from_save()
+    # test_settling_map_from_save()
+    greece()

@@ -258,10 +258,19 @@ def new_main():
     map = MapFromSave('resources/arabia_camel_rush.json')
     civ = Civ(Nation.BABYLON, bfactory, ufactory)  # found city turn 1
 
-    capital = civ.create_city(MapHelper.get_city_tiles(map, Coord(36, 20)))
-    capital.queue_up_many(capital_order)
     civ.queue_many_tech(tech_order)
     civ.queue_many_policy(policy_order)
+
+    # coord = Coord(36, 20)
+    coord = Coord(28, 28)
+    base = MapHelper.get_city_tiles(map, coord)
+    # print(base)
+    # for b in base:
+    #     if 'cow' in repr(b).lower():
+        # print(b)
+
+    capital = civ.create_city(base)
+    capital.queue_up_many(capital_order)
 
     print("Turn 1")
     civ.stats()

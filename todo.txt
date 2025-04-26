@@ -54,6 +54,7 @@ how to come up with variations of strategies?
  - simulate variations to see how long it takes for how much army
 
 
+Granary part 2 - how to improve tile yields of cows, wheat, etc?
 
 
 

@@ -249,7 +249,7 @@ class City(ICity):
             # instance = queueable.instantiate(self)
 
             if isinstance(queueable, StaticQueuedBuilding):
-                instance = self.building_factory.instantiate(queueable)
+                instance = self.building_factory.instantiate(queueable, self)
                 self.add_building(instance)
             
             if isinstance(queueable, StaticQueuedUnit):
@@ -257,7 +257,7 @@ class City(ICity):
                 self.civ.add_unit(instance)
 
             if isinstance(queueable, QueuedBuilding):
-                instance = self.building_factory.instantiate(queueable)
+                instance = self.building_factory.instantiate(queueable, self)
                 self.add_building(instance)
             
             if isinstance(queueable, QueuedUnit):

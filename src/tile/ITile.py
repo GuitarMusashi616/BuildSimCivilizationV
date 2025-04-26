@@ -3,6 +3,7 @@
 from abc import ABC, abstractmethod
 
 from core.Coord import Coord
+from tile.ResourceType import ResourceType
 from tile.TileOutput import TileOutput
 
 class ITile(ABC):
@@ -34,5 +35,13 @@ class ITile(ABC):
     @property
     @abstractmethod
     def output(self) -> TileOutput:
+        pass
+
+    @property
+    @abstractmethod
+    def resource(self) -> ResourceType:
+        pass
+
+    def add_yield_change(self, output: TileOutput):
         pass
     

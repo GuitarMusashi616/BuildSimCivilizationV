@@ -63,8 +63,19 @@ if __name__ == "__main__":
     # tool = DBTool('resources/Civ5CoreDatabase.db')
     # tool.all_fields_labeled('Units', "where Type = 'UNIT_SETTLER'")
 
-    loop_queries()
-    # tables_with_row_counts('tech')
-    # query('select * from Building_YieldChanges')
-    # query('pragma table_info(Building_YieldChanges)')
+    # loop_queries()
+    # tables_with_row_counts('yield')
+    # query('select * from Building_ResourceYieldChanges')
+    # query('pragma table_info(Building_ResourceYieldChanges)')
+
+    query('select * from Resource_YieldChanges')
+    query('pragma table_info(Resource_YieldChanges)')
+
+    # query("select * from Building_YieldChanges where BuildingType like '%stone%'")
+    # query('pragma table_info(GameSpeed_Turns)')
+    # query("select * from GameSpeed_Turns")
+    # science per 2 population
+    # +1 happiness
+    # +40% growth carried over
+    # +25% gold
 
