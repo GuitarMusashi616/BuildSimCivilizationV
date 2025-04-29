@@ -1,14 +1,14 @@
 # pyright: strict
 
 from typing import List
-from core.Civ import Civ
 from core.Coord import Coord
+from core.ICiv import ICiv
 from tile.ITile import ITile
 from unit.IUnitAction import IUnitAction
 
 
 class SettleAction(IUnitAction):
-    def __init__(self, civ: Civ, unitId: int, base: List[ITile]):
+    def __init__(self, civ: ICiv, unitId: int, base: List[ITile]):
         self.civ = civ
         self.unitId = unitId
         self.base = base

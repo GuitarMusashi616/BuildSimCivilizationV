@@ -1,3 +1,12 @@
+Tech / Social Policy cost increase per city
+- hover over top right science beakers "Each city or puppeted city you own will increase Technology costs by 5%"
+- 5% is additive not multiplicative
+- social policy formula might be similar  - https://civilization.fandom.com/wiki/Social_policies_(Civ5)
+- https://civilization.fandom.com/wiki/Representation_(Civ5)
+
+Find the formulas in the civdll source code - SDK civ 5 tools
+
+
 rearrange stuff
 unit actions
 city actions

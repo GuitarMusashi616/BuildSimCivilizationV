@@ -8,6 +8,8 @@ GAME_SPEED_MULT = 1.5  # quick speed (normal is 1)
 MAP_SIZE_MODIFIER = 0.3 # 0.2 for large, 0.15 for huge, (0.3 for everything else)
 
 class Formula:
+    """Formulas based on https://civilization.fandom.com/wiki/Mathematics_of_Civilization_V"""
+
     @staticmethod
     def food_required_to_grow(city_pop: int) -> int:
         # 1.5 at the end is the quick speed multiplier

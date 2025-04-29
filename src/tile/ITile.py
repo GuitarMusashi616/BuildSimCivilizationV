@@ -3,6 +3,7 @@
 from abc import ABC, abstractmethod
 
 from core.Coord import Coord
+from tile.ImprovementType import ImprovementType
 from tile.ResourceType import ResourceType
 from tile.TileOutput import TileOutput
 
@@ -43,5 +44,15 @@ class ITile(ABC):
         pass
 
     def add_yield_change(self, output: TileOutput):
+        pass
+
+    @property
+    @abstractmethod
+    def improvement(self) -> ImprovementType:
+        pass
+    
+    @improvement.setter
+    @abstractmethod
+    def improvement(self, value: ImprovementType):
         pass
     

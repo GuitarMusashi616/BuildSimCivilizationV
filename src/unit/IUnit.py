@@ -23,3 +23,7 @@ class IUnit(ABC):
     @abstractmethod
     def queue(self, action: IUnitAction):
         """Queues up an action"""
+
+    @abstractmethod
+    def insert(self, index: int, action: IUnitAction):
+        """Inserts an action"""

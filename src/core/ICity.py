@@ -3,6 +3,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 
+from core.Coord import Coord
 from queueable.IQueue import IQueue
 from tile.ITile import ITile
 
@@ -53,4 +54,7 @@ class ICity(ABC):
     def get_faith(self) -> int:
         pass
     
+    @abstractmethod
+    def get_tile(self, coord: Coord) -> ITile:
+        pass
 

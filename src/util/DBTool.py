@@ -64,7 +64,14 @@ if __name__ == "__main__":
     # tool.all_fields_labeled('Units', "where Type = 'UNIT_SETTLER'")
 
     # loop_queries()
-    # tables_with_row_counts('yield')
+    # tables_with_row_counts('improvement')
+    # query('pragma table_info(Policy_ImprovementCultureChanges)')
+    query('select * from Improvement_Yields')
+    # query('select * from Improvement_ValidTerrains')
+    # query('select * from Improvement_ResourceTypes')
+    # query('pragma table_info(Improvement_ResourceTypes)')
+
+
     # query('select * from Building_ResourceYieldChanges')
     # query('pragma table_info(Building_ResourceYieldChanges)')
 
@@ -80,7 +87,7 @@ if __name__ == "__main__":
     # +25% gold
 
     # building maintenance
-    query('pragma table_info(Buildings)')
+    # query('pragma table_info(Buildings)')
     # query('select GoldMaintenance from Buildings where Type = 'BUILDING_MONUMENT')
 
 

@@ -5,6 +5,7 @@ import math
 from typing import List
 from building.IBuilding import IBuilding
 from building.IBuildingFactory import IBuildingFactory
+from core.Coord import Coord
 from core.ICity import ICity
 from core.ICiv import ICiv
 from queueable.IQueue import IQueue
@@ -82,6 +83,14 @@ class City(ICity):
 
     def set_tile_strat(self, tile_strat: IPickTileStrat):
         self.tile_strat = tile_strat
+
+    def get_tile(self, coord: Coord) -> ITile:
+        for tile in self.tiles:
+            if tile.coord == coord:
+                return tile
+
+        assert False, f"{coord} is outside of the city boundaries"
+
     
     # def add_wonder(self, wonder: QueuedWonder):
     #     self.wonders.append(wonder)

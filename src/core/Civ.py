@@ -71,7 +71,7 @@ class Civ(ICiv):
         self._add_city(city)
         return city
     
-    def get_city(self, city_id: int):
+    def get_city(self, city_id: int) -> ICity:
         assert city_id in self.cities, f"City with city_id: {city_id} does not exist"
         return self.cities[city_id]
 
@@ -79,6 +79,9 @@ class Civ(ICiv):
         self.units[unit.id] = unit
         for listener in self.unit_made_listeners:
             listener.notify(unit)
+    
+    def get_unit(self, unit_id: int) -> IUnit:
+        return self.units[unit_id]
     
     def remove_unit(self, unitId: int):
         """Just queue the removal of a unit"""

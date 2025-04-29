@@ -11,5 +11,5 @@ class IUnitAction(ABC):
     
     @property
     @abstractmethod
-    def destination(self) -> Coord:
-        pass
+    def destination(self) -> Coord | None:
+        """Returns the coord to execute the action at, if None is returned then rest"""

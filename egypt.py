@@ -19,9 +19,11 @@ from researchable.TechFactory import TechFactory
 from src.core.Civ import Civ, Nation
 from queueable.QueuedUnitFactory import QueuedUnitFactory
 from tile.ITile import ITile
+from tile.ImprovementType import ImprovementType
 from tile.ResourceType import ResourceType
 from tile.TerrainType import TerrainType
 from tile.Tile import Tile
+from unit.ImprovementAction import ImprovementAction
 from unit.MoveAction import MoveAction
 from unit.SettleAction import SettleAction
 from unit.Unit import Unit
@@ -161,6 +163,7 @@ def greece():
     capital_order = [
         "BUILDING_MONUMENT",
         "BUILDING_GRANARY",
+        "UNIT_WORKER",
         "UNIT_SCOUT",
         "UNIT_SETTLER",
     ]
@@ -180,12 +183,16 @@ def greece():
 
     start_coord = Coord(20, 29)
     base = MapHelper.get_city_tiles(map, start_coord)
+
     civ.add_unit_made_listener(QueueUnitActions(0, [SettleAction(civ, 0, base)]))
+
+    civ.add_unit_made_listener(QueueUnitActions(1, [ImprovementAction(civ, 0, 1, Coord(20, 30), 2, ImprovementType.IMPROVEMENT_FARM), MoveAction(start_coord)]))
+
     civ.add_city_made_listener(QueueCityActions(0, capital_order))
 
     civ.add_unit(Unit('UNIT_SETTLER', start_coord))
 
-    MapHelper.find_coord(map, [ResourceType.NONE, ResourceType.RESOURCE_IVORY, ResourceType.NONE, ResourceType.NONE, ResourceType.NONE])
+    # MapHelper.find_coord(map, [ResourceType.NONE, ResourceType.RESOURCE_IVORY, ResourceType.NONE, ResourceType.NONE, ResourceType.NONE])
 
     civ.queue_many_tech(tech_order)
     civ.queue_many_policy(policy_order)

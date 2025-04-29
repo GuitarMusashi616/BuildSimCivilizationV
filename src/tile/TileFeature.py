@@ -14,7 +14,7 @@ class TileFeature(ITile):
         self.terrain = terrain
         self._resource = resource
         self.feature = feature
-        self.improvement = improvement
+        self._improvement = improvement
 
         self._coord = coord
         self._is_worked = is_worked
@@ -44,14 +44,29 @@ class TileFeature(ITile):
     @property
     def output(self) -> TileOutput:
         output = self.get_base_stats()
-        output += self.get_resource_stats()
+
+        if self.resource != ResourceType.NONE:
+            output += self.get_resource_stats()
+
+        if self.improvement != ImprovementType.NONE:
+            output += self.get_improvement_stats()
+
         if self.has_city:
             output = output.set_minimum(TileOutput.minimum_if_tile_has_city())
+
         return output
     
     @property
     def resource(self) -> ResourceType:
         return self._resource
+    
+    @property
+    def improvement(self) -> ImprovementType:
+        return self._improvement
+    
+    @improvement.setter
+    def improvement(self, value: ImprovementType):
+        self._improvement = value
     
     def add_yield_change(self, output: TileOutput):
         self.yield_change += output
@@ -80,6 +95,27 @@ class TileFeature(ITile):
 
         return output
     
+    def get_improvement_stats(self) -> TileOutput:
+        output = TileOutput(0, 0, 0, 0, 0, 0)
+        if self.improvement in {ImprovementType.IMPROVEMENT_MINE, ImprovementType.IMPROVEMENT_LUMBERMILL}:
+            output += TileOutput(0, 1, 0, 0, 0, 0)
+        
+        if self.improvement == ImprovementType.IMPROVEMENT_FARM:
+            output += TileOutput(1, 0, 0, 0, 0, 0)
+        
+        if self.improvement == ImprovementType.IMPROVEMENT_TRADING_POST:
+            output += TileOutput(0, 0, 1, 0, 0, 0)
+
+        if self.improvement == ImprovementType.IMPROVEMENT_ACADEMY:
+            output += TileOutput(0, 0, 0, 0, 8, 0)
+
+        if self.improvement == ImprovementType.IMPROVEMENT_CUSTOMS_HOUSE:
+            output += TileOutput(0, 0, 4, 0, 0, 0)
+
+        if self.improvement == ImprovementType.IMPROVEMENT_MANUFACTORY:
+            output += TileOutput(0, 4, 0, 0, 0, 0)
+        
+        return output
     
     def _get_base_stats_tuple(self) -> Tuple[int, int, int]:
         # feature

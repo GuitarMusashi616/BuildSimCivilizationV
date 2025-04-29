@@ -19,6 +19,11 @@ class Unit(IUnit):
     @property
     def coord(self) -> Coord:
         return self._coord
+    
+    
+    @coord.setter
+    def coord(self, value: Coord):
+        self._coord = value
 
     @property
     def id(self) -> int:
@@ -30,6 +35,10 @@ class Unit(IUnit):
 
         curr_action = self.action_queue[0]
 
+        if not curr_action.destination:
+            self.action_queue.pop(0)
+            return
+
         if self.coord != curr_action.destination:
             self.move_towards_destination(curr_action.destination)
         else:
@@ -40,14 +49,17 @@ class Unit(IUnit):
         """Moves 1 step closer to destination"""
 
         if self.coord.x < destination.x:
-            self.coord.x += 1
+            self.coord += Coord(1, 0)
         elif self.coord.x > destination.x:
-            self.coord.x -= 1
+            self.coord -= Coord(1, 0)
 
         if self.coord.y < destination.y:
-            self.coord.y += 1
+            self.coord += Coord(0, 1)
         elif self.coord.y > destination.y:
-            self.coord.y -= 1
+            self.coord -= Coord(0, 1)
+
+    def insert(self, index: int, action: IUnitAction):
+        self.action_queue.insert(index, action)
 
     def queue(self, action: IUnitAction):
         self.action_queue.append(action)
