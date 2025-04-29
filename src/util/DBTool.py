@@ -68,8 +68,8 @@ if __name__ == "__main__":
     # query('select * from Building_ResourceYieldChanges')
     # query('pragma table_info(Building_ResourceYieldChanges)')
 
-    query('select * from Resource_YieldChanges')
-    query('pragma table_info(Resource_YieldChanges)')
+    # query('select * from Resource_YieldChanges')
+    # query('pragma table_info(Resource_YieldChanges)')
 
     # query("select * from Building_YieldChanges where BuildingType like '%stone%'")
     # query('pragma table_info(GameSpeed_Turns)')
@@ -78,4 +78,9 @@ if __name__ == "__main__":
     # +1 happiness
     # +40% growth carried over
     # +25% gold
+
+    # building maintenance
+    query('pragma table_info(Buildings)')
+    # query('select GoldMaintenance from Buildings where Type = 'BUILDING_MONUMENT')
+
 

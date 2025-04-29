@@ -21,7 +21,7 @@ class BuildingDB(IBuildingDB):
         assert row is not None, f"{building} could not be identified"
         return math.floor(int(row[0]) * self.game_speed_mult)
     
-    def get_yields(self, building: str) -> TileOutput:
+    def get_yield_changes(self, building: str) -> TileOutput:
         self.cursor.execute(f"select YieldType, Yield from Building_YieldChanges where BuildingType = ?", (building,))
         rows = self.cursor.fetchall()
         assert bool(rows), f"{building} could not be identified"
@@ -31,6 +31,23 @@ class BuildingDB(IBuildingDB):
             dic[row[0]] = row[1]
 
         return TileOutput.from_yield(dic)
+    
+    def get_yields(self, building: str) -> TileOutput:
+        """Get all yield changes minus the gold per turn for maintenance"""
+        yield_changes = self.get_yield_changes(building)
+        yield_changes.gold -= self.get_maintenance(building)
+
+        return yield_changes
+
+    def get_maintenance(self, building: str) -> int:
+        """Get the gpt maintenance cost of a building"""
+        self.cursor.execute("select GoldMaintenance from Buildings where Type = ?", (building,))
+        row = self.cursor.fetchone()
+        assert row, f"Could not get maintenance for building: {building}"
+        return int(row[0])
+        
+
+
     
     def get_resource_yield_changes(self, building: str) -> Dict[str, TileOutput]:
         self.cursor.execute(f"select ResourceType, YieldType, Yield from Building_ResourceYieldChanges where BuildingType = ?", (building,))
@@ -61,3 +78,4 @@ if __name__ == "__main__":
     buildingDB = BuildingDB('resources/Civ5coreDatabase.db')
     print(buildingDB.get_cost('BUILDING_MONUMENT'))
     print(buildingDB.get_yields('BUILDING_MONUMENT'))
+    print(buildingDB.get_yields('BUILDING_WATERMILL'))
