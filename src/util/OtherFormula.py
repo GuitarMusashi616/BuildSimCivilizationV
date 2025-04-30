@@ -53,5 +53,6 @@ def test_diagonal_table():
 
 
 if __name__ == "__main__":
+    test_diagonal_table()
 
 
